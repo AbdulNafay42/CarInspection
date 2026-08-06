@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Join Our Team | Provin Finder</title>
+<meta name="description" content="Provin Finder is expanding nationwide and hiring meticulous vehicle inspectors. Apply to join our team today.">
+<link rel="canonical" href="joinus.html">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNSIgZmlsbD0iIzBhMTYyOCIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSI5MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIj5QPC90ZXh0Pjwvc3ZnPg==">
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Barlow+Condensed:wght@400;600;700;800&amp;family=Barlow:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0a1628;--navy2:#112240;--gold:#c8a94a;--gold2:#e8c96a;
+  --gold-light:rgba(200,169,74,0.15);--red:#c0392b;--red2:#e74c3c;
+  --light:#f5f6f8;--white:#ffffff;--gray:#6b7280;--border:#e2e8f0;--text:#1e293b;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:#fff;color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,169,74,0.3);padding:0 4%}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex-shrink:0;transition:transform .25s ease}
+.logo:hover{transform:translateY(-1px)}
+.logo-img{height:46px;width:auto;display:block;object-fit:contain;filter:brightness(1.08) drop-shadow(0 2px 8px rgba(200,169,74,0.25));transition:filter .3s ease}
+.logo:hover .logo-img{filter:brightness(1.15) drop-shadow(0 4px 14px rgba(200,169,74,0.45))}
+.logo-fallback{display:none}
+.logo-text-wrap{display:flex;flex-direction:column;line-height:1;border-left:1px solid rgba(200,169,74,0.3);padding-left:14px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand-top{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-bottom:3px}
+.brand-main{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#f4dc8a 0%,#e8c96a 35%,var(--gold) 60%,#a88a3c 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-style:italic;letter-spacing:0.5px}
+.brand-llc{font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:4px;color:var(--gold);margin-top:5px;display:flex;align-items:center;gap:8px}
+.brand-llc::before,.brand-llc::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,74,0.5),transparent);max-width:24px}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{color:#ccd6f6;text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.4px;padding:7px 11px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--gold);background:rgba(200,169,74,0.1)}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;font-weight:700!important}
+.nav-cta:hover{background:var(--gold2)!important;color:var(--navy)!important;transform:translateY(-1px)}
+.nav-hiring{color:var(--gold)!important;font-weight:700!important;border:1px solid rgba(200,169,74,0.5)}
+
+/* ── PAGE SHELL ── */
+.apply-wrap{min-height:100vh;background:linear-gradient(135deg,#060e1c 0%,var(--navy) 45%,#152a52 100%);padding:120px 5% 70px;position:relative;overflow:hidden}
+.apply-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,169,74,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,74,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.apply-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(200,169,74,0.12) 0%,transparent 70%);top:-10%;right:-5%;pointer-events:none}
+.apply-inner{position:relative;z-index:2;max-width:720px;margin:0 auto}
+
+.apply-head{text-align:center;margin-bottom:14px}
+.hiring-tag{display:inline-flex;align-items:center;gap:9px;background:rgba(200,169,74,0.14);border:1px solid rgba(200,169,74,0.4);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;font-size:0.72rem;padding:7px 16px;border-radius:50px;margin-bottom:18px}
+.hiring-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,0.7);animation:hire-pulse 2s infinite}
+@keyframes hire-pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,0.6)}70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.apply-head h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.6vw,3.1rem);font-weight:900;color:#fff;line-height:1.08;margin-bottom:16px}
+.apply-head h1 .accent{color:var(--gold);font-style:italic}
+.apply-head p{font-size:1.04rem;color:#a8b8d8;line-height:1.75;font-weight:300;max-width:600px;margin:0 auto}
+
+/* ── CARD / FORM ── */
+.apply-card{position:relative;background:#fff;border-radius:22px;padding:42px;box-shadow:0 18px 60px rgba(0,0,0,0.35);border:1px solid var(--border);margin-top:34px}
+.card-head{margin-bottom:26px}
+.card-head h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:6px}
+.card-head p{color:var(--gray);font-size:0.92rem;line-height:1.6}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:0.72rem;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;padding:13px 15px;background:var(--light);border:1.5px solid var(--border);border-radius:8px;font-family:'Barlow',sans-serif;font-size:0.95rem;color:var(--navy);transition:.2s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(200,169,74,0.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+.field-hint{font-size:0.72rem;color:var(--gray);margin-top:5px;line-height:1.5}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.form-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),#b8953a);color:var(--navy);border:none;border-radius:10px;font-size:1rem;font-weight:700;font-family:'Barlow',sans-serif;cursor:pointer;transition:.25s;letter-spacing:0.5px;text-transform:uppercase;margin-top:6px}
+.form-submit:hover{background:linear-gradient(135deg,var(--gold2),var(--gold));transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,169,74,0.38)}
+.form-submit:disabled{opacity:0.7;cursor:not-allowed;transform:none;box-shadow:none}
+.form-note{font-size:0.78rem;color:var(--gray);text-align:center;margin-top:14px;line-height:1.6}
+.form-note svg{width:13px;height:13px;vertical-align:-2px;margin-right:3px;fill:var(--gold)}
+.form-note a{color:var(--gold);text-decoration:none;font-weight:600}
+
+/* success overlay */
+#success-overlay{display:none;position:absolute;inset:0;background:linear-gradient(145deg,#ffffff 0%,#f8fafc 100%);border-radius:22px;padding:42px;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid var(--border);z-index:5;animation:fadeIn .4s ease}
+#success-overlay.show{display:flex}
+.success-icon{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#b8953a);display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 10px 30px rgba(200,169,74,0.4)}
+.success-icon svg{width:38px;height:38px;fill:none;stroke:var(--navy);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.success-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--navy);margin-bottom:8px}
+.success-divider{width:50px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:0 auto 16px}
+.success-text{color:var(--gray);font-size:1rem;line-height:1.7;max-width:400px;margin-bottom:22px}
+.success-back{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:0.9rem;padding:12px 26px;border-radius:9px;transition:.2s}
+.success-back:hover{background:var(--navy2);transform:translateY(-2px)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding:54px 5% 30px}
+.footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:0.78rem;color:#304050}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{font-size:0.8rem;color:#4a6080;text-decoration:none}
+.footer-links a:hover{color:var(--gold)}
+
+@media(max-width:780px){.nav-links{display:none}}
+@media(max-width:620px){.apply-card{padding:28px 22px}.form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Provin Finder - Home">
+      <img src="ppi.png"
+           alt="Provin Finder logo" class="logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="logo-fallback" style="width:42px;height:42px;background:var(--gold);border-radius:8px;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:var(--navy)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="logo-text-wrap">
+        <div class="brand">
+          <span class="brand-top">Pre Purchase</span>
+          <span class="brand-main">Inspection</span>
+          <span class="brand-llc">L · L · C</span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#inspections">Inspections</a></li>
+      <li><a href="index.html#sample">Sample Report</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+      <li><a href="index.html#faqs">FAQs</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="joinus.html" class="nav-hiring">We're Hiring</a></li>
+      <li><a href="index.html#inspections" class="nav-cta">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- APPLICATION -->
+<main class="apply-wrap">
+  <div class="apply-grid" aria-hidden="true"></div>
+  <div class="apply-glow" aria-hidden="true"></div>
+
+  <div class="apply-inner">
+    <div class="apply-head">
+      <span class="hiring-tag"><span class="hiring-dot" aria-hidden="true"></span>Now Hiring Nationwide</span>
+      <h1>Join Our <span class="accent">Team</span></h1>
+      <p>Provin Finder is expanding its services nationwide, and we're building a team of meticulous, detail-driven inspectors to grow with us. If you have a sharp eye for vehicles and take pride in thorough work, we'd love to hear from you — tell us a bit about yourself below and we'll be in touch.</p>
+    </div>
+
+    <div class="apply-card">
+      <div class="card-head">
+        <h2>Inspector Application</h2>
+        <p>All fields are required. Your information is sent securely and is never shared.</p>
+      </div>
+
+      <form id="applyForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms config -->
+        <input type="hidden" name="access_key" value="7f053549-cc84-403c-a271-bce9133bdf35">
+        <input type="hidden" name="subject" value="New Inspector Application – Provin Finder">
+        <input type="hidden" name="from_name" value="PPI Careers Form">
+        <input type="hidden" name="redirect" value="false">
+
+        <!-- Honeypots -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true" placeholder="Your website">
+        <input type="hidden" name="form_loaded_at" id="formLoadedAt" value="">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="John Smith" autocomplete="name" maxlength="80">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" autocomplete="tel" maxlength="25">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">City, State &amp; ZIP Code *</label>
+          <input type="text" id="location" name="location" required placeholder="e.g. Chantilly, VA 20152" autocomplete="off" maxlength="120">
+          <p class="field-hint">Where you're based — this helps us match you to inspections in your area.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="experience">Tell Us About Your Experience *</label>
+          <textarea id="experience" name="experience" required placeholder="Describe your background with vehicles — e.g. years as a mechanic or technician, certifications (ASE, etc.), dealership or inspection experience, and the makes you know best." maxlength="2000"></textarea>
+        </div>
+
+        <!-- Human check -->
+        <div class="form-group">
+          <label for="humanCheck">Quick check: What is <strong id="humanCheckQ" style="color:#b8953a">3 + 4</strong>? *</label>
+          <input type="text" id="humanCheck" name="humanCheck" required placeholder="Type the answer" autocomplete="off" inputmode="numeric" pattern="[0-9]+" maxlength="3">
+        </div>
+
+        <button type="button" class="form-submit" id="applySubmit">Submit Application</button>
+        <p class="form-note">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          Your details are sent securely.</a>
+        </p>
+        <div id="form-error" role="alert" style="display:none;background:rgba(192,57,43,0.12);color:#c0392b;border:1px solid rgba(192,57,43,0.3);padding:12px 16px;border-radius:8px;margin-top:14px;font-size:0.9rem"></div>
+      </form>
+
+      <!-- Success overlay -->
+      <div id="success-overlay" role="alert" aria-live="polite">
+        <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="5 13 10 18 20 7"/></svg></div>
+        <h3 class="success-title">Thank You!</h3>
+        <div class="success-divider"></div>
+        <p class="success-text">We've received your application and will contact you shortly. We appreciate your interest in joining the Provin Finder team.</p>
+        <a href="index.html" class="success-back">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Provin Finder · All Rights Reserved · Chantilly, VA</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#inspections">Inspections</a>
+      <a href="tel:+15713496760">+1 912 221 3922</a>
+      <a href="mailto:contact@provinfinder.online">Email Us</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('applyForm');
+  var submitBtn = document.getElementById('applySubmit');
+  var errorEl = document.getElementById('form-error');
+  var overlayEl = document.getElementById('success-overlay');
+  var loadedAtEl = document.getElementById('formLoadedAt');
+  var humanCheckQ = document.getElementById('humanCheckQ');
+  var humanCheckInput = document.getElementById('humanCheck');
+
+  var formLoadedAt = Date.now();
+  if (loadedAtEl) loadedAtEl.value = String(formLoadedAt);
+
+  // Simple math captcha
+  var captchaAnswer = 0;
+  function newCaptcha(){
+    var a = Math.floor(Math.random()*8)+2, b = Math.floor(Math.random()*8)+2;
+    captchaAnswer = a + b;
+    if (humanCheckQ) humanCheckQ.textContent = a + ' + ' + b;
+    if (humanCheckInput) humanCheckInput.value = '';
+  }
+  newCaptcha();
+
+  function showSuccess(){
+    if (!overlayEl) return;
+    overlayEl.classList.add('show');
+    try { overlayEl.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(_){}
+  }
+
+  async function sendForm(e){
+    if (e){ e.preventDefault(); e.stopImmediatePropagation(); }
+    errorEl.style.display = 'none';
+    errorEl.textContent = '';
+
+    // Bot timing check
+    if (Date.now() - formLoadedAt < 3000){
+      errorEl.textContent = '⚠ Please take a moment to review your details before submitting.';
+      errorEl.style.display = 'block';
+      return false;
+    }
+
+    // Math captcha
+    if (humanCheckInput){
+      var given = parseInt((humanCheckInput.value||'').trim(), 10);
+      if (isNaN(given) || given !== captchaAnswer){
+        errorEl.textContent = '⚠ The math check answer is incorrect. Please try again.';
+        errorEl.style.display = 'block';
+        newCaptcha();
+        humanCheckInput.focus();
+        return false;
+      }
+    }
+
+    // Native validation
+    if (typeof form.reportValidity === 'function' && !form.reportValidity()){
+      return false;
+    }
+
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    try {
+      var fd = new FormData(form);
+      fd.delete('humanCheck'); // client-side only
+      var res = await fetch(form.action, {
+        method:'POST',
+        headers:{ 'Accept':'application/json' },
+        body: fd
+      });
+      var data = null;
+      try { data = await res.json(); } catch(_){}
+
+      if (res.ok && data && data.success){
+        form.querySelectorAll('input, textarea, button').forEach(function(el){ el.disabled = true; });
+        showSuccess();
+      } else {
+        var msg = (data && data.message) ? data.message : 'Something went wrong. ';
+        errorEl.textContent = '⚠ ' + msg;
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        newCaptcha();
+      }
+    } catch(err){
+      errorEl.textContent = '⚠ Network error. Please check your connection.';
+      errorEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      newCaptcha();
+    }
+    return false;
+  }
+
+  submitBtn.addEventListener('click', sendForm, true);
+  form.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA'){ sendForm(e); }
+  }, true);
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); e.stopImmediatePropagation(); sendForm(e); return false;
+  }, true);
+})();
+</script>
+</body>
+
+</html>
