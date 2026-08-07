@@ -332,92 +332,55 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 </footer>
 
 <script>
-(function(){
-  // ── Package configuration ──────────────────────────────────────────
-  // The page defaults to the Bronze package. To reuse this page for other
-  // tiers, link to it with ?pkg=silver or ?pkg=gold and fill in their
-  // payment URLs below.
-  var PACKAGES = {
-    bronze: {
-      name: 'Basic',
-      price: '59.99',
-      label: 'Basic — $59.99',
-      payUrl: 'https://square.link/u/jIYe82nU'
-    },
-    silver: {
-      name: 'Standard',
-      price: '79.99',
-      label: 'Standard — $79.99',
-      payUrl: 'https://square.link/u/FyTgMrDE'
-    },
-    gold: {
-      name: 'Premium',
-      price: '129.99',
-      label: 'Premium — $129.99',
-      payUrl: 'https://square.link/u/3HL04VRE'
-    }
-  };
-  PACKAGES.basic = PACKAGES.bronze; // backward-compat for any old ?pkg=basic links
+(function () {
 
-  function getParam(n){ try { return new URLSearchParams(window.location.search).get(n); } catch(_) { return null; } }
-  var pkgKey = (getParam('pkg') || 'bronze').toLowerCase();
-  var pkg = PACKAGES[pkgKey] || PACKAGES.bronze;
+    var form = document.getElementById("bookingForm");
+    var submitBtn = document.getElementById("bookingSubmit");
+    var overlayEl = document.getElementById("redirect-overlay");
+    var vinInput = document.getElementById("vinLast6");
 
-  // Apply package details to the page
-  document.getElementById('headPkg').textContent = pkg.name;
-  document.getElementById('summaryName').textContent = pkg.name;
-  document.getElementById('summaryPrice').textContent = pkg.price;
-  // var manualLink = document.getElementById('manualPayLink');
-  // manualLink.href = pkg.payUrl;
+    var selectedPackage = "bronze";
 
-  // ── Form logic ─────────────────────────────────────────────────────
-  var form = document.getElementById('bookingForm');
-  var submitBtn = document.getElementById('bookingSubmit');
-  var errorEl = document.getElementById('form-error');
-  var overlayEl = document.getElementById('redirect-overlay');
-  var vinInput = document.getElementById('vinLast6');
-
-  // Force VIN to uppercase as typed
-  if (vinInput) {
-    vinInput.addEventListener('input', function(){
-      this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-    });
-  }
-
-function showRedirect(){
-    if (!overlayEl) return;
-
-    overlayEl.classList.add('show');
-
-    try {
-        overlayEl.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
+    if (vinInput) {
+        vinInput.addEventListener("input", function () {
+            this.value = this.value
+                .toUpperCase()
+                .replace(/[^A-Z0-9]/g, "");
         });
-    } catch(_) {}
-}
-
-
-function sendForm(e){
-    e.preventDefault();
-
-    if(!form.reportValidity()){
-        return;
     }
 
-    showRedirect();
+    function showRedirect() {
+        if (!overlayEl) return;
 
-    setTimeout(() => {
-        form.submit();
-    }, 1500);
-}
-  submitBtn.addEventListener('click', sendForm, true);
-  form.addEventListener('keydown', function(e){
-    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA'){ sendForm(e); }
-  }, true);
-  form.addEventListener('submit', function(e){
-    e.preventDefault(); e.stopImmediatePropagation(); sendForm(e); return false;
-  }, true);
+        overlayEl.classList.add("show");
+
+        try {
+            overlayEl.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        } catch (e) {}
+    }
+
+    function sendForm(e) {
+        e.preventDefault();
+
+        if (!form.reportValidity()) {
+            return;
+        }
+
+        showRedirect();
+
+        setTimeout(function () {
+            window.location.href =
+                "payment.html?pkg=" + selectedPackage;
+        }, 1500);
+    }
+
+    if (submitBtn) {
+        submitBtn.addEventListener("click", sendForm);
+    }
+
 })();
 </script>
 </body>

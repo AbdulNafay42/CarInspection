@@ -1,1213 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Complete Your Payment | Provin Finder</title>
-
-    <meta name="description" content="Complete your Provin Finder inspection payment using PayPal or Zelle.">
-
-    <style>
-        /* =========================================================
-       RESET
-    ========================================================= */
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #071426;
-            color: #1e293b;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-
-        /* =========================================================
-       PAGE
-    ========================================================= */
-
-        .payment-page {
-            min-height: 100vh;
-            padding: 80px 20px;
-            background:
-                radial-gradient(circle at top right,
-                    rgba(200, 169, 74, 0.12),
-                    transparent 35%),
-                linear-gradient(135deg,
-                    #050d1b 0%,
-                    #071426 50%,
-                    #102444 100%);
-        }
-
-
-        .payment-container {
-            width: 100%;
-            max-width: 1050px;
-            margin: 0 auto;
-        }
-
-        /* =========================================================
-       HEADER
-    ========================================================= */
-
-        .payment-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .payment-label {
-            display: inline-block;
-            margin-bottom: 12px;
-            color: #c8a94a;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .payment-header h1 {
-            color: #ffffff;
-            font-size: clamp(2rem,
-                    5vw,
-                    3.2rem);
-
-            line-height: 1.1;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .payment-header h1 span {
-            color: #c8a94a;
-        }
-
-        .payment-header p {
-            max-width: 650px;
-            margin: 0 auto;
-            color: #a8b8d8;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-
-        /* =========================================================
-       PACKAGE SUMMARY
-    ========================================================= */
-
-        .package-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding: 20px 24px;
-            background: linear-gradient(135deg,
-                    #0a1628,
-                    #172d54);
-
-            border: 1px solid rgba(200,
-                    169,
-                    74,
-                    0.25);
-            border-radius: 14px;
-        }
-
-        .package-info span {
-            display: block;
-            color: #c8a94a;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .package-info strong {
-            color: #ffffff;
-            font-size: 1.15rem;
-        }
-
-        .package-price {
-            color: #c8a94a;
-            font-size: 2rem;
-            font-weight: 800;
-            white-space: nowrap;
-        }
-
-
-        /* =========================================================
-       PAYMENT METHODS
-    ========================================================= */
-
-        .payment-methods {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 24px;
-
-            margin-bottom: 35px;
-        }
-
-
-        .payment-card {
-            background: #ffffff;
-
-            border-radius: 18px;
-
-            padding: 30px;
-
-            text-align: center;
-
-            border: 1px solid #e2e8f0;
-
-            box-shadow:
-                0 18px 50px rgba(0, 0, 0, 0.22);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-
-        .payment-card:hover {
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 25px 60px rgba(0, 0, 0, 0.28);
-        }
-
-
-        .payment-icon {
-            width: 52px;
-            height: 52px;
-
-            margin: 0 auto 15px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #f5f7fa;
-
-            color: #0a1628;
-
-            font-size: 1.2rem;
-            font-weight: 800;
-        }
-
-
-        .payment-card h2 {
-            color: #0a1628;
-
-            font-size: 1.4rem;
-
-            margin-bottom: 8px;
-        }
-
-
-        .payment-card>p {
-            color: #64748b;
-
-            font-size: 0.9rem;
-
-            line-height: 1.6;
-
-            margin-bottom: 20px;
-        }
-
-
-        /* =========================================================
-       QR CODE
-    ========================================================= */
-
-        .qr-wrapper {
-            width: 230px;
-            height: 230px;
-
-            margin: 0 auto 18px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #ffffff;
-
-            border: 1px solid #dbe3ee;
-
-            border-radius: 12px;
-
-            overflow: hidden;
-        }
-
-
-        .qr-wrapper img {
-            display: block;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: contain;
-
-            padding: 10px;
-        }
-
-
-        .qr-caption {
-            color: #64748b;
-
-            font-size: 0.82rem;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================================================
-       INSTRUCTIONS
-    ========================================================= */
-
-        .instructions {
-            margin-bottom: 35px;
-
-            padding: 25px 28px;
-
-            background: #f5f7fa;
-
-            border: 1px solid #dbe3ee;
-
-            border-radius: 14px;
-        }
-
-
-        .instructions h2 {
-            color: #0a1628;
-
-            font-size: 1.2rem;
-
-            margin-bottom: 15px;
-        }
-
-
-        .instructions ol {
-            padding-left: 20px;
-        }
-
-
-        .instructions li {
-            color: #475569;
-
-            font-size: 0.9rem;
-
-            line-height: 1.7;
-
-            margin-bottom: 7px;
-        }
-
-
-        .instructions strong {
-            color: #0a1628;
-        }
-
-
-        /* =========================================================
-       CONFIRMATION CARD
-    ========================================================= */
-
-        .confirmation-card {
-            background: #ffffff;
-
-            border-radius: 20px;
-
-            padding: 40px;
-
-            border: 1px solid #e2e8f0;
-
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.25);
-        }
-
-
-        .confirmation-header {
-            text-align: center;
-
-            margin-bottom: 30px;
-        }
-
-
-        .confirmation-header .label {
-            display: inline-block;
-
-            color: #c8a94a;
-
-            font-size: 0.7rem;
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 10px;
-        }
-
-
-        .confirmation-header h2 {
-            color: #0a1628;
-
-            font-size: 2rem;
-
-            margin-bottom: 10px;
-        }
-
-
-        .confirmation-header h2 span {
-            color: #c8a94a;
-        }
-
-
-        .confirmation-header p {
-            max-width: 650px;
-
-            margin: 0 auto;
-
-            color: #64748b;
-
-            font-size: 0.92rem;
-
-            line-height: 1.7;
-        }
-
-
-        /* =========================================================
-       FORM
-    ========================================================= */
-
-        .confirmation-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 20px;
-        }
-
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-
-        .form-group label {
-            color: #0a1628;
-
-            font-size: 0.72rem;
-
-            font-weight: 700;
-
-            letter-spacing: 0.8px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 7px;
-        }
-
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-
-            min-height: 48px;
-
-            padding: 12px 14px;
-
-            background: #f8fafc;
-
-            border: 1.5px solid #dbe3ee;
-
-            border-radius: 8px;
-
-            color: #0a1628;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 0.94rem;
-
-            outline: none;
-
-            transition: 0.2s ease;
-        }
-
-
-        .form-group input:focus,
-        .form-group select:focus {
-            background: #ffffff;
-
-            border-color: #c8a94a;
-
-            box-shadow:
-                0 0 0 3px rgba(200, 169, 74, 0.12);
-        }
-
-
-        .form-hint {
-            color: #64748b;
-
-            font-size: 0.72rem;
-
-            line-height: 1.5;
-
-            margin-top: 6px;
-        }
-
-
-        /* =========================================================
-       AMOUNT
-    ========================================================= */
-
-        .amount-box {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            margin-top: 25px;
-
-            padding: 18px 20px;
-
-            background: #f5f7fa;
-
-            border: 1px solid #dbe3ee;
-
-            border-radius: 12px;
-        }
-
-
-        .amount-info {
-            display: flex;
-            flex-direction: column;
-
-            gap: 4px;
-        }
-
-
-        .amount-info span {
-            color: #64748b;
-
-            font-size: 0.7rem;
-
-            font-weight: 700;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-        }
-
-
-        .amount-info strong {
-            color: #0a1628;
-
-            font-size: 1.7rem;
-        }
-
-
-        .amount-status {
-            color: #16805c;
-
-            font-size: 0.85rem;
-
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-       CHECKBOX
-    ========================================================= */
-
-        .confirmation-check {
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 11px;
-
-            margin-top: 22px;
-
-            padding: 16px;
-
-            background: #f8fafc;
-
-            border: 1px solid #e2e8f0;
-
-            border-radius: 10px;
-
-            cursor: pointer;
-        }
-
-
-        .confirmation-check input {
-            width: 18px;
-            height: 18px;
-
-            flex-shrink: 0;
-
-            margin-top: 2px;
-
-            accent-color: #c8a94a;
-        }
-
-
-        .confirmation-check span {
-            color: #475569;
-
-            font-size: 0.88rem;
-
-            line-height: 1.6;
-        }
-
-
-        .confirmation-check strong {
-            color: #0a1628;
-        }
-
-
-        /* =========================================================
-       SUBMIT BUTTON
-    ========================================================= */
-
-        .submit-button {
-            width: 100%;
-
-            min-height: 55px;
-
-            margin-top: 22px;
-
-            padding: 15px 20px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(135deg,
-                    #c8a94a,
-                    #b8953a);
-
-            color: #0a1628;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            font-size: 0.95rem;
-
-            font-weight: 800;
-
-            letter-spacing: 0.5px;
-
-            text-transform: uppercase;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 10px 28px rgba(200, 169, 74, 0.35);
-        }
-
-
-        .submit-note {
-            text-align: center;
-
-            max-width: 600px;
-
-            margin: 14px auto 0;
-
-            color: #64748b;
-
-            font-size: 0.76rem;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================================================
-       SECURITY NOTE
-    ========================================================= */
-
-        .security-note {
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            gap: 7px;
-
-            margin-top: 20px;
-
-            color: #64748b;
-
-            font-size: 0.75rem;
-
-            text-align: center;
-        }
-
-
-        .security-note span {
-            color: #16805c;
-
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-       FOOTER
-    ========================================================= */
-
-        .page-footer {
-            margin-top: 35px;
-
-            text-align: center;
-
-            color: #64748b;
-
-            font-size: 0.75rem;
-        }
-
-
-        .page-footer a {
-            color: #c8a94a;
-
-            text-decoration: none;
-        }
-
-
-        /* =========================================================
-       MOBILE
-    ========================================================= */
-
-        @media (max-width: 760px) {
-
-            .payment-page {
-                padding: 50px 15px;
-            }
-
-
-            .payment-methods {
-                grid-template-columns: 1fr;
-            }
-
-
-            .confirmation-grid {
-                grid-template-columns: 1fr;
-            }
-
-
-            .confirmation-card {
-                padding: 28px 20px;
-            }
-
-
-            .package-summary {
-                align-items: flex-start;
-
-                flex-direction: column;
-            }
-
-
-            .package-price {
-                font-size: 1.7rem;
-            }
-
-        }
-
-
-        @media (max-width: 480px) {
-
-            .payment-header h1 {
-                font-size: 2rem;
-            }
-
-
-            .payment-header p {
-                font-size: 0.9rem;
-            }
-
-
-            .payment-card {
-                padding: 22px 16px;
-            }
-
-
-            .qr-wrapper {
-                width: 210px;
-                height: 210px;
-            }
-
-
-            .confirmation-header h2 {
-                font-size: 1.6rem;
-            }
-
-
-            .amount-box {
-                align-items: flex-start;
-
-                flex-direction: column;
-            }
-
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Your Payment | Provin Finder</title>
+<meta name="description" content="Complete your Provin Finder inspection payment using PayPal or Zelle.">
+
+<style>
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #071426;
+    color: #1e293b;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.payment-page {
+    min-height: 100vh;
+    padding: 80px 20px;
+    background:
+        radial-gradient(circle at top right, rgba(200,169,74,.12), transparent 35%),
+        linear-gradient(135deg, #050d1b 0%, #071426 50%, #102444 100%);
+}
+
+.payment-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.payment-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.payment-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #c8a94a;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.payment-header h1 {
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.payment-header h1 span {
+    color: #c8a94a;
+}
+
+.payment-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #a8b8d8;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.package-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #0a1628, #172d54);
+    border: 1px solid rgba(200,169,74,.25);
+    border-radius: 14px;
+}
+
+.package-info span {
+    display: block;
+    color: #c8a94a;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.package-info strong {
+    color: #fff;
+    font-size: 1.15rem;
+}
+
+.package-price {
+    color: #c8a94a;
+    font-size: 2rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.payment-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.payment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 60px rgba(0,0,0,.28);
+}
+
+.payment-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5f7fa;
+    color: #0a1628;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.payment-card h2 {
+    color: #0a1628;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.payment-card > p {
+    color: #64748b;
+    font-size: .9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.qr-wrapper {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #dbe3ee;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.qr-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.qr-caption {
+    color: #64748b;
+    font-size: .82rem;
+    line-height: 1.5;
+}
+
+.instructions {
+    margin-bottom: 35px;
+    padding: 25px 28px;
+    background: #f5f7fa;
+    border: 1px solid #dbe3ee;
+    border-radius: 14px;
+}
+
+.instructions h2 {
+    color: #0a1628;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    color: #475569;
+    font-size: .9rem;
+    line-height: 1.7;
+    margin-bottom: 7px;
+}
+
+.instructions strong {
+    color: #0a1628;
+}
+
+.confirmation-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.confirmation-header .label {
+    display: inline-block;
+    color: #c8a94a;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.confirmation-header h2 {
+    color: #0a1628;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.confirmation-header h2 span {
+    color: #c8a94a;
+}
+
+.confirmation-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #64748b;
+    font-size: .92rem;
+    line-height: 1.7;
+}
+
+.confirmation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #0a1628;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border: 1.5px solid #dbe3ee;
+    border-radius: 8px;
+    color: #0a1628;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .94rem;
+    outline: none;
+    transition: .2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    background: #fff;
+    border-color: #c8a94a;
+    box-shadow: 0 0 0 3px rgba(200,169,74,.12);
+}
+
+.form-hint {
+    color: #64748b;
+    font-size: .72rem;
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+.amount-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 25px;
+    padding: 18px 20px;
+    background: #f5f7fa;
+    border: 1px solid #dbe3ee;
+    border-radius: 12px;
+}
+
+.amount-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.amount-info span {
+    color: #64748b;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.amount-info strong {
+    color: #0a1628;
+    font-size: 1.7rem;
+}
+
+.amount-status {
+    color: #16805c;
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+.confirmation-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-top: 22px;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.confirmation-check input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: #c8a94a;
+}
+
+.confirmation-check span {
+    color: #475569;
+    font-size: .88rem;
+    line-height: 1.6;
+}
+
+.confirmation-check strong {
+    color: #0a1628;
+}
+
+.submit-button {
+    width: 100%;
+    min-height: 55px;
+    margin-top: 22px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #c8a94a, #b8953a);
+    color: #0a1628;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .95rem;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(200,169,74,.35);
+}
+
+.submit-note {
+    text-align: center;
+    max-width: 600px;
+    margin: 14px auto 0;
+    color: #64748b;
+    font-size: .76rem;
+    line-height: 1.6;
+}
+
+.security-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 20px;
+    color: #64748b;
+    font-size: .75rem;
+    text-align: center;
+}
+
+.security-note span {
+    color: #16805c;
+    font-weight: 700;
+}
+
+.page-footer {
+    margin-top: 35px;
+    text-align: center;
+    color: #64748b;
+    font-size: .75rem;
+}
+
+.page-footer a {
+    color: #c8a94a;
+    text-decoration: none;
+}
+
+@media (max-width: 760px) {
+    .payment-page {
+        padding: 50px 15px;
+    }
+
+    .payment-methods,
+    .confirmation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .confirmation-card {
+        padding: 28px 20px;
+    }
+
+    .package-summary {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .package-price {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-header h1 {
+        font-size: 2rem;
+    }
+
+    .payment-header p {
+        font-size: .9rem;
+    }
+
+    .payment-card {
+        padding: 22px 16px;
+    }
+
+    .qr-wrapper {
+        width: 210px;
+        height: 210px;
+    }
+
+    .confirmation-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .amount-box {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<main class="payment-page">
+<div class="payment-container">
 
-    <main class="payment-page">
+<header class="payment-header">
+    <span class="payment-label">Step 2 of 2 · Secure Payment</span>
 
-        <div class="payment-container">
+    <h1>
+        Complete Your <span>Payment</span>
+    </h1>
 
+    <p>
+        Your booking details have been received.
+        Please choose your preferred payment method below
+        and complete your payment.
+    </p>
+</header>
+
+<section class="package-summary">
+    <div class="package-info">
+        <span>Inspection Package</span>
+        <strong id="packageName">Bronze Inspection</strong>
+    </div>
+
+    <div class="package-price" id="packagePrice">$249</div>
+</section>
+
+<section class="payment-methods">
+
+<article class="payment-card">
+    <div class="payment-icon">P</div>
+
+    <h2>Pay with PayPal</h2>
+
+    <p>
+        Scan the QR code using your phone
+        to complete your payment.
+    </p>
+
+    <div class="qr-wrapper">
+        <img src="public/paypalQR.png" alt="PayPal payment QR code">
+    </div>
+
+    <p class="qr-caption">
+        Scan this QR code to complete your payment through PayPal.
+    </p>
+</article>
+
+<article class="payment-card">
+    <div class="payment-icon">Z</div>
+
+    <h2>Pay with Zelle</h2>
+
+    <p>
+        Scan the QR code using your banking app
+        to send your payment.
+    </p>
+
+    <div class="qr-wrapper">
+        <img src="public/zelleQR.png" alt="Zelle payment QR code">
+    </div>
+
+    <p class="qr-caption">
+        Scan this QR code to send your payment through Zelle.
+    </p>
+</article>
+
+</section>
+
+<section class="instructions">
+    <h2>How to complete your payment</h2>
+
+    <ol>
+        <li>Choose either <strong>PayPal</strong> or <strong>Zelle</strong>.</li>
+        <li>Scan the corresponding QR code using your phone.</li>
+        <li>Confirm that the payment amount is <strong id="instructionPrice">$249</strong>.</li>
+        <li>Complete the payment in your PayPal or banking app.</li>
+        <li>Return to this page and submit your payment confirmation below.</li>
+    </ol>
+</section>
+
+<section class="confirmation-card">
+
+<div class="confirmation-header">
+    <span class="label">Final Step</span>
+
+    <h2>
+        Confirm Your <span>Payment</span>
+    </h2>
+
+    <p>
+        After completing your payment, enter the information below.
+        Our team will manually verify your payment before confirming
+        your inspection.
+    </p>
+</div>
+
+<form action="https://formsubmit.co/provinfinder@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="Payment Confirmation - Provin Finder">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://www.provinfinder.online/payment-success.html">
+
+<input type="hidden" id="formPackage" name="inspection_package" value="Bronze Inspection">
+<input type="hidden" id="formAmount" name="payment_amount" value="$249">
+
+<div class="confirmation-grid">
+
+<div class="form-group">
+    <label for="customerName">Full Name *</label>
+    <input
+        type="text"
+        id="customerName"
+        name="customer_name"
+        placeholder="John Smith"
+        autocomplete="name"
+        required
+        maxlength="100"
+    >
+</div>
+
+<div class="form-group">
+    <label for="customerEmail">Email Address *</label>
+    <input
+        type="email"
+        id="customerEmail"
+        name="customer_email"
+        placeholder="john@example.com"
+        autocomplete="email"
+        required
+        maxlength="100"
+    >
+</div>
+
+<div class="form-group">
+    <label for="paymentMethod">Payment Method *</label>
+
+    <select id="paymentMethod" name="payment_method" required>
+        <option value="">Select payment method</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Zelle">Zelle</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="paymentReference">
+        Payment Reference / Transaction ID *
+    </label>
+
+    <input
+        type="text"
+        id="paymentReference"
+        name="payment_reference"
+        placeholder="Enter transaction ID"
+        required
+        maxlength="100"
+    >
+
+    <span class="form-hint">
+        Enter the confirmation number or transaction ID shown after your payment.
+    </span>
+</div>
+
+</div>
+
+<div class="amount-box">
+<div class="amount-info">
+    <span>Amount to Confirm</span>
+    <strong id="amountPrice">$59.99</strong>
+</div>
+    <div class="amount-status">
+        ✓ Payment amount confirmed
+    </div>
+</div>
+
+<label class="confirmation-check">
+    <input
+        type="checkbox"
+        name="payment_confirmation"
+        value="Customer confirms payment was completed"
+        required
+    >
+
+    <span>
+        I confirm that I have completed the
+        <strong id="checkboxPrice">$59.99</strong>
+        payment using the payment method selected above.
+    </span>
+</label>
+
+<button type="submit" class="submit-button">
+    Submit Payment Confirmation →
+</button>
+
+<p class="submit-note">
+    Your payment confirmation will be sent to our team for manual verification.
+    Submitting this form does not automatically verify your payment.
+</p>
+
+<div class="security-note">
+    <span>✓</span>
+    Your confirmation is securely transmitted.
+</div>
+
+</form>
+
+</section>
+
+<footer class="page-footer">
+    <p>
+        © 2026 Provin Finder ·
+        <a href="https://www.provinfinder.online/">
+            Return to Provin Finder
+        </a>
+    </p>
+</footer>
+
+</div>
+</main>
+<script>
+(function () {
+
+    var PACKAGES = {
+        bronze: {
+            name: "Basic",
+            price: "59.99"
+        },
+
+        silver: {
+            name: "Standard",
+            price: "79.99"
+        },
+
+        gold: {
+            name: "Premium",
+            price: "129.99"
+        }
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var pkgKey = (params.get("pkg") || "bronze").toLowerCase();
+
+    var pkg = PACKAGES[pkgKey] || PACKAGES.bronze;
+    var price = "$" + pkg.price;
+
+    document.getElementById("packageName").textContent =
+        pkg.name + " Inspection";
+
+    document.getElementById("packagePrice").textContent =
+        price;
+
+    document.getElementById("instructionPrice").textContent =
+        price;
+
+    document.getElementById("amountPrice").textContent =
+        price;
+
+    document.getElementById("checkboxPrice").textContent =
+        price;
+
+})();
+</script>
 
-            <!-- =====================================================
-           HEADER
-      ====================================================== -->
-
-            <header class="payment-header">
-
-                <span class="payment-label">
-                    Step 2 of 2 · Secure Payment
-                </span>
-
-                <h1>
-                    Complete Your
-                    <span>Payment</span>
-                </h1>
-
-                <p>
-                    Your booking details have been received.
-                    Please choose your preferred payment method below
-                    and complete your payment.
-                </p>
-
-            </header>
-
-
-            <!-- =====================================================
-           PACKAGE
-      ====================================================== -->
-
-            <section class="package-summary">
-
-                <div class="package-info">
-
-                    <span>
-                        Inspection Package
-                    </span>
-
-                    <strong id="packageName">
-                        Basic Inspection
-                    </strong>
-
-                </div>
-
-
-                <div class="package-price" id="packagePrice">
-                    $59.99
-                </div>
-
-            </section>
-
-
-            <!-- =====================================================
-           PAYMENT METHODS
-      ====================================================== -->
-
-            <section class="payment-methods">
-
-
-                <!-- PAYPAL -->
-
-                <article class="payment-card">
-
-                    <div class="payment-icon">
-                        P
-                    </div>
-
-                    <h2>
-                        Pay with PayPal
-                    </h2>
-
-                    <p>
-                        Scan the QR code using your phone
-                        to complete your payment.
-                    </p>
-
-
-                    <div class="qr-wrapper">
-
-                        <!--
-              Put your PayPal QR image in the same folder
-              and name it:
-
-              paypal-qr.png
-            -->
-
-                        <img src="public/paypalQR.png" alt="PayPal payment QR code">
-
-                    </div>
-
-
-                    <p class="qr-caption">
-                        Scan this QR code to complete your
-                        $59.99 payment through PayPal.
-                    </p>
-
-                </article>
-
-                <!-- ZELLE -->
-
-                <article class="payment-card">
-
-                    <div class="payment-icon">
-                        Z
-                    </div>
-
-                    <h2>
-                        Pay with Zelle
-                    </h2>
-
-                    <p>
-                        Scan the QR code using your banking app
-                        to send your payment.
-                    </p>
-
-
-                    <div class="qr-wrapper">
-
-                        <!--
-              Put your Zelle QR image in the same folder
-              and name it:
-
-              zelle-qr.png
-            -->
-
-                        <img src="public/zelleQR.png" alt="Zelle payment QR code">
-
-                    </div>
-
-
-                    <p class="qr-caption">
-                        Scan this QR code to send your
-                        $59.99 payment through Zelle.
-                    </p>
-
-                </article>
-
-
-            </section>
-
-
-            <!-- =====================================================
-           INSTRUCTIONS
-      ====================================================== -->
-
-            <section class="instructions">
-
-                <h2>
-                    How to complete your payment
-                </h2>
-
-                <ol>
-
-                    <li>
-                        Choose either
-                        <strong>PayPal</strong>
-                        or
-                        <strong>Zelle</strong>.
-                    </li>
-
-                    <li>
-                        Scan the corresponding QR code
-                        using your phone.
-                    </li>
-
-                    <li>
-                        Confirm that the payment amount is
-                        <strong>$59.99</strong>.
-                    </li>
-
-                    <li>
-                        Complete the payment in your
-                        PayPal or banking app.
-                    </li>
-
-                    <li>
-                        Return to this page and submit
-                        your payment confirmation below.
-                    </li>
-
-                </ol>
-
-            </section>
-
-
-            <!-- =====================================================
-           PAYMENT CONFIRMATION
-      ====================================================== -->
-
-            <section class="confirmation-card">
-
-
-                <div class="confirmation-header">
-
-                    <span class="label">
-                        Final Step
-                    </span>
-
-                    <h2>
-                        Confirm Your
-                        <span>Payment</span>
-                    </h2>
-
-                    <p>
-                        After completing your payment, enter the
-                        information below. Our team will manually
-                        verify your payment before confirming
-                        your inspection.
-                    </p>
-
-                </div>
-
-
-                <!--
-          IMPORTANT:
-
-          Replace:
-
-          YOUR_ADMIN_EMAIL@gmail.com
-
-          with your actual admin email.
-        -->
-
-                <form action="https://formsubmit.co/provinfinder@gmail.com" method="POST">
-
-
-                    <!-- FORM SUBMIT SETTINGS -->
-
-                    <input type="hidden" name="_subject" value="Payment Confirmation - Provin Finder">
-
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <!--
-            After successful submission,
-            user goes to this page.
-
-            Create payment-success.html
-            on your website.
-          -->
-
-            <input
-            type="hidden"
-            name="_next"
-            value="https://www.provinfinder.online/payment-success.html"
-          > 
-                    <!-- <input type="hidden" name="_next" value="http://127.0.0.1:5500/payment-success.html" /> -->
-
-                    <input type="hidden" name="inspection_package" value="Basic Inspection">
-
-
-                    <!-- AMOUNT -->
-
-                    <input type="hidden" name="payment_amount" value="$59.99">
-
-
-                    <div class="confirmation-grid">
-
-
-                        <!-- NAME -->
-
-                        <div class="form-group">
-
-                            <label for="customerName">
-                                Full Name *
-                            </label>
-
-                            <input type="text" id="customerName" name="customer_name" placeholder="John Smith"
-                                autocomplete="name" required maxlength="100">
-
-                        </div>
-
-
-                        <!-- EMAIL -->
-
-                        <div class="form-group">
-
-                            <label for="customerEmail">
-                                Email Address *
-                            </label>
-
-                            <input type="email" id="customerEmail" name="customer_email" placeholder="john@example.com"
-                                autocomplete="email" required maxlength="100">
-
-                        </div>
-
-
-                        <!-- PAYMENT METHOD -->
-
-                        <div class="form-group">
-
-                            <label for="paymentMethod">
-                                Payment Method *
-                            </label>
-
-                            <select id="paymentMethod" name="payment_method" required>
-
-                                <option value="">
-                                    Select payment method
-                                </option>
-
-                                <option value="PayPal">
-                                    PayPal
-                                </option>
-
-                                <option value="Zelle">
-                                    Zelle
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <!-- TRANSACTION ID -->
-
-                        <div class="form-group">
-
-                            <label for="paymentReference">
-                                Payment Reference / Transaction ID *
-                            </label>
-
-                            <input type="text" id="paymentReference" name="payment_reference"
-                                placeholder="Enter transaction ID" required maxlength="100">
-
-                            <span class="form-hint">
-                                Enter the confirmation number or
-                                transaction ID shown after your payment.
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <!-- AMOUNT -->
-
-                    <div class="amount-box">
-
-                        <div class="amount-info">
-
-                            <span>
-                                Amount to Confirm
-                            </span>
-
-                            <strong>
-                                $59.99
-                            </strong>
-
-                        </div>
-
-
-                        <div class="amount-status">
-                            ✓ Payment amount confirmed
-                        </div>
-
-                    </div>
-
-
-                    <!-- CHECKBOX -->
-
-                    <label class="confirmation-check">
-
-                        <input type="checkbox" name="payment_confirmation"
-                            value="Customer confirms payment was completed" required>
-
-                        <span>
-                            I confirm that I have completed the
-                            <strong>$59.99</strong> payment using
-                            the payment method selected above.
-                        </span>
-
-                    </label>
-
-
-                    <!-- SUBMIT -->
-
-                    <button type="submit" class="submit-button">
-                        Submit Payment Confirmation →
-                    </button>
-
-
-                    <p class="submit-note">
-                        Your payment confirmation will be sent to our
-                        team for manual verification. Submitting this
-                        form does not automatically verify your payment.
-                    </p>
-
-
-                    <div class="security-note">
-                        <span>✓</span>
-                        Your confirmation is securely transmitted.
-                    </div>
-
-
-                </form>
-
-            </section>
-
-
-            <!-- =====================================================
-           FOOTER
-      ====================================================== -->
-
-            <footer class="page-footer">
-
-                <p>
-                    © 2026 Provin Finder ·
-                    <a href="https://www.provinfinder.online/">
-                        Return to Provin Finder
-                    </a>
-                </p>
-
-            </footer>
-
-        </div>
-    </main>
 </body>
-
 </html>
