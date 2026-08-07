@@ -190,10 +190,13 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 
   
 <form id="bookingForm" action="https://formsubmit.co/provinfinder@gmail.com" method="POST">
-    <input type="hidden" name="_next" value="https://www.paypal.com/ncp/payment/XXXXXXXX">
 <input type="hidden" name="_subject" value="New Inspection Booking">
 <input type="hidden" name="_captcha" value="false">       
-
+  <input
+  type="hidden"
+  name="_next"
+  value="https://www.provinfinder.online/payment.html"
+>
         <div class="form-block-label">Your Contact Info</div>
 
             <div class="form-row">
@@ -301,7 +304,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         <div class="success-divider"></div>
         <p class="success-text">Thank you — we've got your vehicle information. Taking you to our secure payment page to complete your booking…</p>
         <div class="spinner" aria-hidden="true"></div>
-        <p class="manual-link">Not redirected automatically? <a href="#" id="manualPayLink" target="_blank" rel="noopener">Click here to pay →</a></p>
+        <!-- <p class="manual-link">Not redirected automatically? <a href="#" id="manualPayLink" target="_blank" rel="noopener">Click here to pay →</a></p> -->
       </div>
     </div>
   </div>
@@ -356,8 +359,8 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
   document.getElementById('headPkg').textContent = pkg.name;
   document.getElementById('summaryName').textContent = pkg.name;
   document.getElementById('summaryPrice').textContent = pkg.price;
-  var manualLink = document.getElementById('manualPayLink');
-  manualLink.href = pkg.payUrl;
+  // var manualLink = document.getElementById('manualPayLink');
+  // manualLink.href = pkg.payUrl;
 
   // ── Form logic ─────────────────────────────────────────────────────
   var form = document.getElementById('bookingForm');
@@ -373,21 +376,21 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
     });
   }
 
-
-
-  function redirectToPayment(){
-    try { window.location.assign(pkg.payUrl); } catch(_) { window.location.href = pkg.payUrl; }
-  }
-
-  function showRedirect(){
+function showRedirect(){
     if (!overlayEl) return;
-    overlayEl.classList.add('show');
-    try { overlayEl.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(_){}
-    // Give the user a beat to read, then send them to payment
-    setTimeout(redirectToPayment, 1400);
-  }
 
- function sendForm(e){
+    overlayEl.classList.add('show');
+
+    try {
+        overlayEl.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    } catch(_) {}
+}
+
+
+function sendForm(e){
     e.preventDefault();
 
     if(!form.reportValidity()){
