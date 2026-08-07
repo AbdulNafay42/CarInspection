@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Payment Confirmation | Provin Finder</title>
+
+  <meta
+    name="description"
+    content="Your payment confirmation has been received by Provin Finder."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #071426;
+      color: #0b1220;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .success-wrapper {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .success-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 55px 60px 50px;
+      text-align: center;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Success Icon */
+    .success-icon {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      background: #e5f3ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon svg {
+      width: 42px;
+      height: 42px;
+      fill: none;
+      stroke: #078a67;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Heading */
+    .success-title {
+      margin: 0 0 15px;
+      font-size: 32px;
+      line-height: 1.2;
+      color: #071426;
+      font-weight: 700;
+    }
+
+    .success-description {
+      max-width: 570px;
+      margin: 0 auto;
+      color: #64748b;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: #e5eaf0;
+      margin: 35px 0;
+    }
+
+    /* Status Box */
+    .status-box {
+      text-align: left;
+      background: #f7f9fc;
+      border: 1px solid #dfe6ee;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 25px;
+    }
+
+    .status-label {
+      margin-bottom: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-dot {
+      width: 11px;
+      height: 11px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #d9a928;
+      box-shadow: 0 0 0 5px rgba(217, 169, 40, 0.12);
+    }
+
+    .status-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: #172033;
+    }
+
+    /* Contact Information */
+    .contact-box {
+      text-align: left;
+      border: 1px solid #e1e7ef;
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 30px;
+    }
+
+    .contact-label {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .contact-email {
+      color: #071426;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+
+    /* Information */
+    .info-text {
+      margin: 0 auto 30px;
+      max-width: 560px;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Button */
+    .home-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 9px;
+      background: #d9a928;
+      color: #071426;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .home-button:hover {
+      background: #c99a1f;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(217, 169, 40, 0.25);
+    }
+
+    /* Brand */
+    .brand {
+      margin-top: 30px;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    .brand strong {
+      color: #d9a928;
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      body {
+        padding: 20px 14px;
+      }
+
+      .success-card {
+        padding: 40px 22px 35px;
+        border-radius: 18px;
+      }
+
+      .success-icon {
+        width: 72px;
+        height: 72px;
+      }
+
+      .success-icon svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .success-title {
+        font-size: 26px;
+      }
+
+      .success-description {
+        font-size: 15px;
+      }
+
+      .divider {
+        margin: 28px 0;
+      }
+
+      .status-box,
+      .contact-box {
+        padding: 19px;
+      }
+
+      .home-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="success-wrapper">
+
+    <section class="success-card">
+
+      <!-- Success Icon -->
+      <div class="success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <polyline points="5 13 10 18 20 7"></polyline>
+        </svg>
+      </div>
+
+      <!-- Main Message -->
+      <h1 class="success-title">
+        Payment Confirmation Submitted
+      </h1>
+
+      <p class="success-description">
+        Thank you! We've received your payment confirmation.
+        Your payment will be manually verified by our team.
+        Once your payment is verified, your vehicle inspection
+        booking will be confirmed.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- Booking Status -->
+      <div class="status-box">
+
+        <div class="status-label">
+          Booking Status
+        </div>
+
+        <div class="status-row">
+          <span class="status-dot"></span>
+
+          <span class="status-text">
+            Payment verification pending
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Additional Information -->
+      <p class="info-text">
+        Our team will review your payment confirmation and
+        contact you once your payment has been verified.
+        Please keep an eye on your email for your booking confirmation.
+      </p>
+
+      <!-- Back Home -->
+      <a
+        href="https://www.provinfinder.online/"
+        class="home-button"
+      >
+        Back to Homepage
+      </a>
+
+      <!-- Brand -->
+      <div class="brand">
+        <strong>Provin Finder</strong>
+        &nbsp;·&nbsp;
+        Vehicle Inspection Services
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
