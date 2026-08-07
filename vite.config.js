@@ -21,6 +21,8 @@ export default defineConfig({
         bookingBasic: resolve(import.meta.dirname, 'bookingBasic.html'),
         bookingStandard: resolve(import.meta.dirname, 'bookingStandard.html'),
         bookingPremium: resolve(import.meta.dirname, 'bookingPremium.html'),
+        payment: resolve(import.meta.dirname, 'payment.html'),
+        paymentSuccess: resolve(import.meta.dirname, 'payment-success.html'),
         joinus: resolve(import.meta.dirname, 'joinus.html'),
       },
     },
