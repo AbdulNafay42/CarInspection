@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Complete Your Payment | Provin Finder</title>
 <meta name="description" content="Complete your Provin Finder inspection payment using PayPal or Zelle.">
 
@@ -29,7 +30,7 @@ body {
 
 .payment-page {
     min-height: 100vh;
-    padding: 80px 20px;
+    padding: 70px 20px;
     background:
         radial-gradient(circle at top right, rgba(200,169,74,.12), transparent 35%),
         linear-gradient(135deg, #050d1b 0%, #071426 50%, #102444 100%);
@@ -41,9 +42,11 @@ body {
     margin: 0 auto;
 }
 
+/* HEADER */
+
 .payment-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .payment-label {
@@ -75,6 +78,8 @@ body {
     font-size: 1rem;
     line-height: 1.7;
 }
+
+/* PACKAGE */
 
 .package-summary {
     display: flex;
@@ -109,6 +114,60 @@ body {
     font-weight: 800;
     white-space: nowrap;
 }
+
+/* INSTRUCTIONS */
+
+.instructions {
+    margin-bottom: 30px;
+    padding: 28px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.instructions h2 {
+    color: #0a1628;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+}
+
+.instructions ol {
+    padding-left: 22px;
+}
+
+.instructions li {
+    color: #475569;
+    font-size: .92rem;
+    line-height: 1.7;
+    margin-bottom: 9px;
+}
+
+.instructions li:last-child {
+    margin-bottom: 0;
+}
+
+.instructions strong {
+    color: #0a1628;
+}
+
+/* PAYMENT WARNING */
+
+.payment-warning {
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: rgba(200,169,74,.10);
+    border: 1px solid rgba(200,169,74,.35);
+    border-radius: 10px;
+    color: #475569;
+    font-size: .88rem;
+    line-height: 1.6;
+}
+
+.payment-warning strong {
+    color: #0a1628;
+}
+
+/* PAYMENT METHODS */
 
 .payment-methods {
     display: grid;
@@ -186,34 +245,7 @@ body {
     line-height: 1.5;
 }
 
-.instructions {
-    margin-bottom: 35px;
-    padding: 25px 28px;
-    background: #f5f7fa;
-    border: 1px solid #dbe3ee;
-    border-radius: 14px;
-}
-
-.instructions h2 {
-    color: #0a1628;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.instructions ol {
-    padding-left: 20px;
-}
-
-.instructions li {
-    color: #475569;
-    font-size: .9rem;
-    line-height: 1.7;
-    margin-bottom: 7px;
-}
-
-.instructions strong {
-    color: #0a1628;
-}
+/* CONFIRMATION */
 
 .confirmation-card {
     background: #fff;
@@ -298,12 +330,19 @@ body {
     box-shadow: 0 0 0 3px rgba(200,169,74,.12);
 }
 
+.form-group input[type="file"] {
+    padding: 9px;
+    cursor: pointer;
+}
+
 .form-hint {
     color: #64748b;
     font-size: .72rem;
     line-height: 1.5;
     margin-top: 6px;
 }
+
+/* AMOUNT */
 
 .amount-box {
     display: flex;
@@ -342,6 +381,8 @@ body {
     font-weight: 700;
 }
 
+/* CHECKBOX */
+
 .confirmation-check {
     display: flex;
     align-items: flex-start;
@@ -371,6 +412,8 @@ body {
 .confirmation-check strong {
     color: #0a1628;
 }
+
+/* BUTTON */
 
 .submit-button {
     width: 100%;
@@ -432,7 +475,10 @@ body {
     text-decoration: none;
 }
 
+/* MOBILE */
+
 @media (max-width: 760px) {
+
     .payment-page {
         padding: 50px 15px;
     }
@@ -457,6 +503,7 @@ body {
 }
 
 @media (max-width: 480px) {
+
     .payment-header h1 {
         font-size: 2rem;
     }
@@ -489,10 +536,16 @@ body {
 <body>
 
 <main class="payment-page">
+
 <div class="payment-container">
 
+<!-- HEADER -->
+
 <header class="payment-header">
-    <span class="payment-label">Step 2 of 2 · Secure Payment</span>
+
+    <span class="payment-label">
+        Step 2 of 2 · Secure Payment
+    </span>
 
     <h1>
         Complete Your <span>Payment</span>
@@ -500,216 +553,463 @@ body {
 
     <p>
         Your booking details have been received.
-        Please choose your preferred payment method below
-        and complete your payment.
+        Please complete your payment using PayPal or Zelle.
     </p>
+
 </header>
 
+
+<!-- PACKAGE -->
+
 <section class="package-summary">
+
     <div class="package-info">
+
         <span>Inspection Package</span>
-        <strong id="packageName">Bronze Inspection</strong>
+
+        <strong id="packageName">
+            Basic Inspection
+        </strong>
+
     </div>
 
-    <div class="package-price" id="packagePrice">$249</div>
+    <div class="package-price" id="packagePrice">
+        $59.99
+    </div>
+
 </section>
+
+
+<!-- HOW TO PAY -->
+
+<section class="instructions">
+
+    <h2>
+        How to Complete Your Payment
+    </h2>
+
+    <ol>
+
+        <li>
+            Choose either <strong>PayPal</strong> or <strong>Zelle</strong>.
+        </li>
+
+        <li>
+            Use your phone to scan the corresponding QR code below.
+        </li>
+
+        <li>
+            Confirm that the payment amount is
+            <strong id="instructionPrice">$59.99</strong>.
+        </li>
+
+        <li>
+            Complete the payment through your PayPal or banking app.
+        </li>
+
+        <li>
+            After payment is completed, take a screenshot showing
+            your successful payment.
+        </li>
+
+        <li>
+            Return to the confirmation form below and provide your
+            transaction ID and payment screenshot.
+        </li>
+
+    </ol>
+
+    <div class="payment-warning">
+
+        <strong>Important:</strong>
+        Please complete your payment before submitting the confirmation form.
+        You must provide a transaction ID and screenshot of your completed
+        payment. Your payment will be manually verified by our team.
+
+    </div>
+
+</section>
+
+
+<!-- QR CODES -->
 
 <section class="payment-methods">
 
-<article class="payment-card">
-    <div class="payment-icon">P</div>
+<!-- PAYPAL -->
 
-    <h2>Pay with PayPal</h2>
+<article class="payment-card">
+
+    <div class="payment-icon">
+        P
+    </div>
+
+    <h2>
+        Pay with PayPal
+    </h2>
 
     <p>
-        Scan the QR code using your phone
+        Scan this QR code using your phone
         to complete your payment.
     </p>
 
     <div class="qr-wrapper">
-        <img src="public/paypalQR.png" alt="PayPal payment QR code">
+
+        <img
+            src="public/paypalQR.png"
+            alt="PayPal payment QR code"
+        >
+
     </div>
 
     <p class="qr-caption">
         Scan this QR code to complete your payment through PayPal.
     </p>
+
 </article>
 
-<article class="payment-card">
-    <div class="payment-icon">Z</div>
 
-    <h2>Pay with Zelle</h2>
+<!-- ZELLE -->
+
+<article class="payment-card">
+
+    <div class="payment-icon">
+        Z
+    </div>
+
+    <h2>
+        Pay with Zelle
+    </h2>
 
     <p>
-        Scan the QR code using your banking app
+        Scan this QR code using your banking app
         to send your payment.
     </p>
 
     <div class="qr-wrapper">
-        <img src="public/zelleQR.png" alt="Zelle payment QR code">
+
+        <img
+            src="public/zelleQR.png"
+            alt="Zelle payment QR code"
+        >
+
     </div>
 
     <p class="qr-caption">
         Scan this QR code to send your payment through Zelle.
     </p>
+
 </article>
 
 </section>
 
-<section class="instructions">
-    <h2>How to complete your payment</h2>
 
-    <ol>
-        <li>Choose either <strong>PayPal</strong> or <strong>Zelle</strong>.</li>
-        <li>Scan the corresponding QR code using your phone.</li>
-        <li>Confirm that the payment amount is <strong id="instructionPrice">$249</strong>.</li>
-        <li>Complete the payment in your PayPal or banking app.</li>
-        <li>Return to this page and submit your payment confirmation below.</li>
-    </ol>
-</section>
+<!-- CONFIRMATION -->
 
 <section class="confirmation-card">
 
 <div class="confirmation-header">
-    <span class="label">Final Step</span>
+
+    <span class="label">
+        Final Step
+    </span>
 
     <h2>
         Confirm Your <span>Payment</span>
     </h2>
 
     <p>
-        After completing your payment, enter the information below.
-        Our team will manually verify your payment before confirming
+        After completing your payment, enter your transaction
+        information and upload a screenshot of your completed payment.
+        Our team will manually verify the payment before confirming
         your inspection.
     </p>
+
 </div>
 
-<form action="https://formsubmit.co/provinfinder@gmail.com" method="POST">
 
-<input type="hidden" name="_subject" value="Payment Confirmation - Provin Finder">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://www.provinfinder.online/payment-success.html">
+<form
+    action="https://formsubmit.co/provinfinder@gmail.com"
+    method="POST"
+    enctype="multipart/form-data"
+>
 
-<input type="hidden" id="formPackage" name="inspection_package" value="Bronze Inspection">
-<input type="hidden" id="formAmount" name="payment_amount" value="$249">
+    <!-- FORMSUBMIT SETTINGS -->
 
-<div class="confirmation-grid">
-
-<div class="form-group">
-    <label for="customerName">Full Name *</label>
     <input
-        type="text"
-        id="customerName"
-        name="customer_name"
-        placeholder="John Smith"
-        autocomplete="name"
-        required
-        maxlength="100"
+        type="hidden"
+        name="_subject"
+        value="Payment Confirmation - Provin Finder"
     >
-</div>
 
-<div class="form-group">
-    <label for="customerEmail">Email Address *</label>
     <input
-        type="email"
-        id="customerEmail"
-        name="customer_email"
-        placeholder="john@example.com"
-        autocomplete="email"
-        required
-        maxlength="100"
+        type="hidden"
+        name="_captcha"
+        value="false"
     >
-</div>
 
-<div class="form-group">
-    <label for="paymentMethod">Payment Method *</label>
+    <input
+        type="hidden"
+        name="_next"
+        value="https://www.provinfinder.online/payment-success.html"
+    >
 
-    <select id="paymentMethod" name="payment_method" required>
-        <option value="">Select payment method</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Zelle">Zelle</option>
-    </select>
-</div>
 
-<div class="form-group">
-    <label for="paymentReference">
-        Payment Reference / Transaction ID *
+    <!-- DYNAMIC PACKAGE -->
+
+    <input
+        type="hidden"
+        id="formPackage"
+        name="inspection_package"
+        value="Basic Inspection"
+    >
+
+    <input
+        type="hidden"
+        id="formAmount"
+        name="payment_amount"
+        value="$59.99"
+    >
+
+
+    <div class="confirmation-grid">
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+            <label for="customerName">
+                Full Name *
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                name="customer_name"
+                placeholder="John Smith"
+                autocomplete="name"
+                required
+                maxlength="100"
+            >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label for="customerEmail">
+                Email Address *
+            </label>
+
+            <input
+                type="email"
+                id="customerEmail"
+                name="customer_email"
+                placeholder="john@example.com"
+                autocomplete="email"
+                required
+                maxlength="100"
+            >
+
+        </div>
+
+
+        <!-- PAYMENT METHOD -->
+
+        <div class="form-group">
+
+            <label for="paymentMethod">
+                Payment Method *
+            </label>
+
+            <select
+                id="paymentMethod"
+                name="payment_method"
+                required
+            >
+
+                <option value="">
+                    Select payment method
+                </option>
+
+                <option value="PayPal">
+                    PayPal
+                </option>
+
+                <option value="Zelle">
+                    Zelle
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- TRANSACTION ID -->
+
+        <div class="form-group">
+
+            <label for="paymentReference">
+                Payment Reference / Transaction ID *
+            </label>
+
+            <input
+                type="text"
+                id="paymentReference"
+                name="payment_reference"
+                placeholder="Enter transaction ID"
+                required
+                maxlength="100"
+            >
+
+            <span class="form-hint">
+                Enter the confirmation number or transaction ID
+                shown after your payment.
+            </span>
+
+        </div>
+
+
+        <!-- SCREENSHOT -->
+
+        <div class="form-group">
+
+            <label for="paymentScreenshot">
+                Payment Screenshot *
+            </label>
+
+            <input
+                type="file"
+                id="paymentScreenshot"
+                name="payment_screenshot"
+                accept="image/png,image/jpeg,image/webp"
+                required
+            >
+
+            <span class="form-hint">
+                Upload a screenshot showing your completed payment.
+                PNG, JPG, JPEG or WEBP image required.
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- AMOUNT -->
+
+    <div class="amount-box">
+
+        <div class="amount-info">
+
+            <span>
+                Amount to Confirm
+            </span>
+
+            <strong id="amountPrice">
+                $59.99
+            </strong>
+
+        </div>
+
+        <div class="amount-status">
+            ✓ Payment amount confirmed
+        </div>
+
+    </div>
+
+
+    <!-- CONFIRMATION -->
+
+    <label class="confirmation-check">
+
+        <input
+            type="checkbox"
+            name="payment_confirmation"
+            value="Customer confirms payment was completed"
+            required
+        >
+
+        <span>
+
+            I confirm that I have completed the
+            <strong id="checkboxPrice">$59.99</strong>
+            payment using the payment method selected above
+            and have uploaded a screenshot of the completed payment.
+
+        </span>
+
     </label>
 
-    <input
-        type="text"
-        id="paymentReference"
-        name="payment_reference"
-        placeholder="Enter transaction ID"
-        required
-        maxlength="100"
+
+    <!-- SUBMIT -->
+
+    <button
+        type="submit"
+        class="submit-button"
     >
+        Submit Payment Confirmation →
+    </button>
 
-    <span class="form-hint">
-        Enter the confirmation number or transaction ID shown after your payment.
-    </span>
-</div>
 
-</div>
+    <p class="submit-note">
 
-<div class="amount-box">
-<div class="amount-info">
-    <span>Amount to Confirm</span>
-    <strong id="amountPrice">$59.99</strong>
-</div>
-    <div class="amount-status">
-        ✓ Payment amount confirmed
+        Your transaction ID and payment screenshot will be
+        sent to our team for manual verification.
+        Submitting this form does not automatically verify
+        your payment.
+
+    </p>
+
+
+    <div class="security-note">
+
+        <span>✓</span>
+
+        Your confirmation is securely transmitted.
+
     </div>
-</div>
-
-<label class="confirmation-check">
-    <input
-        type="checkbox"
-        name="payment_confirmation"
-        value="Customer confirms payment was completed"
-        required
-    >
-
-    <span>
-        I confirm that I have completed the
-        <strong id="checkboxPrice">$59.99</strong>
-        payment using the payment method selected above.
-    </span>
-</label>
-
-<button type="submit" class="submit-button">
-    Submit Payment Confirmation →
-</button>
-
-<p class="submit-note">
-    Your payment confirmation will be sent to our team for manual verification.
-    Submitting this form does not automatically verify your payment.
-</p>
-
-<div class="security-note">
-    <span>✓</span>
-    Your confirmation is securely transmitted.
-</div>
 
 </form>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer class="page-footer">
+
     <p>
+
         © 2026 Provin Finder ·
+
         <a href="https://www.provinfinder.online/">
             Return to Provin Finder
         </a>
+
     </p>
+
 </footer>
 
+
 </div>
+
 </main>
+
+
 <script>
+
 (function () {
 
+    /* ==============================
+       PACKAGE CONFIGURATION
+    ============================== */
+
     var PACKAGES = {
+
         bronze: {
             name: "Basic",
             price: "59.99"
@@ -724,30 +1024,218 @@ body {
             name: "Premium",
             price: "129.99"
         }
+
     };
 
-    var params = new URLSearchParams(window.location.search);
-    var pkgKey = (params.get("pkg") || "bronze").toLowerCase();
 
-    var pkg = PACKAGES[pkgKey] || PACKAGES.bronze;
-    var price = "$" + pkg.price;
+    /* ==============================
+       GET PACKAGE FROM URL
+       
+       payment.html?pkg=bronze
+       payment.html?pkg=silver
+       payment.html?pkg=gold
+    ============================== */
 
-    document.getElementById("packageName").textContent =
-        pkg.name + " Inspection";
+    var params =
+        new URLSearchParams(window.location.search);
 
-    document.getElementById("packagePrice").textContent =
-        price;
+    var pkgKey =
+        (params.get("pkg") || "bronze").toLowerCase();
 
-    document.getElementById("instructionPrice").textContent =
-        price;
 
-    document.getElementById("amountPrice").textContent =
-        price;
+    var pkg =
+        PACKAGES[pkgKey] || PACKAGES.bronze;
 
-    document.getElementById("checkboxPrice").textContent =
-        price;
+
+    var price =
+        "$" + pkg.price;
+
+
+    /* ==============================
+       UPDATE PAGE
+    ============================== */
+
+    var packageName =
+        document.getElementById("packageName");
+
+    var packagePrice =
+        document.getElementById("packagePrice");
+
+    var instructionPrice =
+        document.getElementById("instructionPrice");
+
+    var amountPrice =
+        document.getElementById("amountPrice");
+
+    var checkboxPrice =
+        document.getElementById("checkboxPrice");
+
+    var formPackage =
+        document.getElementById("formPackage");
+
+    var formAmount =
+        document.getElementById("formAmount");
+
+
+    if (packageName) {
+
+        packageName.textContent =
+            pkg.name + " Inspection";
+
+    }
+
+
+    if (packagePrice) {
+
+        packagePrice.textContent =
+            price;
+
+    }
+
+
+    if (instructionPrice) {
+
+        instructionPrice.textContent =
+            price;
+
+    }
+
+
+    if (amountPrice) {
+
+        amountPrice.textContent =
+            price;
+
+    }
+
+
+    if (checkboxPrice) {
+
+        checkboxPrice.textContent =
+            price;
+
+    }
+
+
+    if (formPackage) {
+
+        formPackage.value =
+            pkg.name + " Inspection";
+
+    }
+
+
+    if (formAmount) {
+
+        formAmount.value =
+            price;
+
+    }
+
+
+    /* ==============================
+       STRICT SCREENSHOT VALIDATION
+    ============================== */
+
+    var form =
+        document.querySelector(
+            ".confirmation-card form"
+        );
+
+    var screenshot =
+        document.getElementById(
+            "paymentScreenshot"
+        );
+
+
+    if (form && screenshot) {
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                var file =
+                    screenshot.files[0];
+
+
+                /* No file */
+
+                if (!file) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Please upload your payment screenshot before submitting the confirmation form."
+                    );
+
+                    screenshot.focus();
+
+                    return;
+
+                }
+
+
+                /* Allowed image types */
+
+                var allowedTypes = [
+                    "image/png",
+                    "image/jpeg",
+                    "image/webp"
+                ];
+
+
+                if (
+                    !allowedTypes.includes(
+                        file.type
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Please upload a valid PNG, JPG, JPEG, or WEBP payment screenshot."
+                    );
+
+                    screenshot.value = "";
+
+                    screenshot.focus();
+
+                    return;
+
+                }
+
+
+                /* Maximum 5 MB */
+
+                var maxSize =
+                    5 * 1024 * 1024;
+
+
+                if (
+                    file.size > maxSize
+                ) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Your screenshot must be smaller than 5 MB."
+                    );
+
+                    screenshot.value = "";
+
+                    screenshot.focus();
+
+                    return;
+
+                }
+
+            }
+        );
+
+    }
 
 })();
+
 </script>
 
 </body>
