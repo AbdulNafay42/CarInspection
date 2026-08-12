@@ -662,7 +662,12 @@ body {
     </div>
 
     <p class="qr-caption">
-        Scan this QR code to complete your payment through PayPal.
+        <a id="paypalPaymentLink"
+           href="https://www.paypal.com/ncp/payment/EDF73ZS7LDDZC"
+           target="_blank"
+           rel="noopener noreferrer">
+            PayPal payment link
+        </a>
     </p>
 
 </article>
@@ -1012,17 +1017,20 @@ body {
 
         bronze: {
             name: "Basic",
-            price: "59.99"
+            price: "59.99",
+            paypalLink: "https://www.paypal.com/ncp/payment/EDF73ZS7LDDZC"
         },
 
         silver: {
             name: "Standard",
-            price: "79.99"
+            price: "79.99",
+            paypalLink: "https://www.paypal.com/ncp/payment/VAR2R2D4T9TWJ"
         },
 
         gold: {
             name: "Premium",
-            price: "129.99"
+            price: "129.99",
+            paypalLink: "https://www.paypal.com/ncp/payment/QENGNGD8CD3T4I"
         }
 
     };
@@ -1075,6 +1083,9 @@ body {
 
     var formAmount =
         document.getElementById("formAmount");
+
+    var paypalPaymentLink =
+        document.getElementById("paypalPaymentLink");
 
 
     if (packageName) {
@@ -1129,6 +1140,13 @@ body {
 
         formAmount.value =
             price;
+
+    }
+
+    if (paypalPaymentLink) {
+
+        paypalPaymentLink.href =
+            pkg.paypalLink;
 
     }
 
