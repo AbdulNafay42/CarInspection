@@ -170,13 +170,14 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
     <div class="book-head">
       <span class="section-label">Step 1 of 2 · Vehicle Details</span>
       <h1>Book Your <span class="accent" id="headPkg">Basic Inspection</span></h1>
-      <p>Tell us about the vehicle and where it's located. After you confirm these details, you'll be taken to our secure payment page to complete your booking.</p>
+      <!-- <p>Tell us about the vehicle and where it's located. After you confirm these details, you'll be taken to our secure payment page to complete your booking.</p> -->
+      <p>Tell us about the vehicle and where it's located.</p>
 
-      <div class="steps" aria-hidden="true">
+      <!-- <div class="steps" aria-hidden="true">
         <div class="step-chip active"><span class="dot">1</span><span class="txt">Vehicle details</span></div>
         <div class="step-bar"></div>
         <div class="step-chip idle"><span class="dot">2</span><span class="txt">Secure payment</span></div>
-      </div>
+      </div> -->
     </div>
 
     <div class="book-card">
@@ -188,8 +189,8 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         <div class="ps-price"><sup>$</sup><span id="summaryPrice">59.99</span></div>
       </div>
 
-  <form id="bookingForm" action="https://formsubmit.co/provinfinder@gmail.com" method="POST">
-  <!-- <form id="bookingForm" action="https://formsubmit.co/abdulnafay2005@gmail.com" method="POST"> -->
+  <!-- <form id="bookingForm" action="https://formsubmit.co/provinfinder@gmail.com" method="POST"> -->
+  <form id="bookingForm" action="https://formsubmit.co/abdulnafay2005@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="New Inspection Booking">
 <input type="hidden" name="_captcha" value="false">
   <!-- Redirect after email submission -->
@@ -239,7 +240,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
             <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" autocomplete="tel" maxlength="25">
           </div>
         </div>
-    <div class="form-row">
+    <!-- <div class="form-row">
   <div class="form-group">
     <label for="cardNumber">Card Number *</label>
     <input
@@ -294,7 +295,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
       maxlength="4"
       pattern="[0-9]{4}">
   </div>
-</div>
+</div> -->
 
 
         <button type="button" class="form-submit" id="bookingSubmit">Continue to Secure Payment →</button>
@@ -310,8 +311,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="5 13 10 18 20 7"/></svg></div>
         <h3 class="success-title">Details Received!</h3>
         <div class="success-divider"></div>
-        <p class="success-text">Thank you — we've got your vehicle information. Taking you to our secure payment page to complete your booking…</p>
-        <div class="spinner" aria-hidden="true"></div>
+        <p class="success-text">Thanks for your submission! We'll get back to you shortly.</p>
         <!-- <p class="manual-link">Not redirected automatically? <a href="#" id="manualPayLink" target="_blank" rel="noopener">Click here to pay →</a></p> -->
       </div>
     </div>
@@ -369,12 +369,33 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
             return;
         }
 
-        showRedirect();
+        var originalLabel = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting…";
 
-        setTimeout(function () {
-            window.location.href =
-                "payment.html?pkg=" + selectedPackage;
-        }, 1500);
+        fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form)
+        })
+        .then(function (res) {
+            return res.json().then(function (data) {
+                console.log("FormSubmit response:", data);
+                if (!res.ok || String(data.success) !== "true") {
+                    throw new Error(data.message || "Request failed");
+                }
+                showRedirect();
+            });
+        })
+        .catch(function () {
+            var errorEl = document.getElementById("form-error");
+            if (errorEl) {
+                errorEl.textContent = "Something went wrong. Please try again.";
+                errorEl.style.display = "block";
+            }
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalLabel;
+        });
     }
 
     if (submitBtn) {
