@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title data-i18n="payment.complete_your_payment_provin_finder">Complete Your Payment | Provin Finder</title>
-<meta name="description" content="Complete your Provin Finder inspection payment using PayPal or Zelle." data-i18n-attr="content:payment.complete_your_provin_finder_inspection">
+<meta name="description" content="Complete your Provin Finder inspection payment securely online." data-i18n-attr="content:payment.complete_your_provin_finder_inspection">
 
 <style>
 *,
@@ -359,6 +359,35 @@ body {
     box-shadow: 0 7px 18px rgba(10, 22, 40, .16);
 }
 
+button.paypal-button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.paypal-button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.geidea-status {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: .78rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.geidea-status.error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+}
+
 .paypal-note {
     display: block;
     margin-top: 12px;
@@ -699,7 +728,7 @@ body {
 
     <p data-i18n="payment.your_booking_details_have_been">
         Your booking details have been received.
-        Please complete your payment using PayPal.
+        Please complete your payment securely online.
     </p>
 
 </header>
@@ -720,7 +749,7 @@ body {
     </div>
 
     <div class="package-price" id="packagePrice">
-        €39.99
+        $59.99
     </div>
 
 </section>
@@ -733,21 +762,20 @@ body {
 
 <section class="payment-methods">
 
-<!-- PAYPAL -->
+<!-- GEIDEA HOSTED CHECKOUT (card styles are the former PayPal ones, reused) -->
 
 <article class="payment-card paypal-card">
 
     <div class="payment-icon">
-        P
+        $
     </div>
 
-    <h2 data-i18n="payment.pay_with_paypal">
-        Pay with PayPal
+    <h2 data-i18n="payment.pay_securely_online">
+        Pay Securely Online
     </h2>
 
-    <p data-i18n="payment.complete_your_payment_securely_through">
-        Complete your payment securely through PayPal using the
-        payment link below.
+    <p data-i18n="payment.pay_securely_intro">
+        Complete your payment on Geidea's secure hosted checkout.
     </p>
 
     <div class="paypal-payment-area">
@@ -755,30 +783,30 @@ body {
         <div class="paypal-action">
 
             <div class="paypal-action-mark">
-                P
+                $
             </div>
 
             <div class="paypal-action-content">
-                <span class="paypal-action-title" data-i18n="payment.secure_paypal_checkout">
-                    Secure PayPal Checkout
+                <span class="paypal-action-title" data-i18n="payment.secure_card_checkout">
+                    Secure Card Checkout
                 </span>
 
-                <span class="paypal-action-subtitle" data-i18n="payment.you_will_be_redirected_to">
-                    You will be redirected to PayPal to complete your payment.
+                <span class="paypal-action-subtitle" data-i18n="payment.secure_window_opens">
+                    A secure window opens to complete your payment.
                 </span>
             </div>
 
-            <a
-                id="paypalPaymentLink"
-                href="https://www.paypal.com/ncp/payment/EDF73ZS7LDDZC"
-                target="_blank"
-                rel="noopener noreferrer"
+            <button
+                type="button"
+                id="geideaPayButton"
                 class="paypal-button"
-             data-i18n="payment.continue">
-                Continue
-            </a>
+                data-i18n="payment.pay_now">
+                Pay Now
+            </button>
 
         </div>
+
+        <div id="geideaPayStatus" class="geidea-status" role="status" aria-live="polite" hidden></div>
 
         <span class="paypal-note" data-i18n="payment.your_selected_inspection_package_and">
             Your selected inspection package and amount will be reflected
@@ -802,8 +830,8 @@ body {
 
     <ol>
 
-        <li data-i18n-html="payment.choose_paypal_to_complete_your">
-            Choose <strong>PayPal</strong> to complete your payment.
+        <li data-i18n-html="payment.click_pay_now">
+            Click <strong>Pay Now</strong> to open the secure checkout.
         </li>
 
         <li data-i18n="payment.use_your_phone_to_scan">
@@ -812,11 +840,11 @@ body {
 
         <li data-i18n-html="payment.confirm_that_the_payment_amount" data-i18n-keep="instructionPrice">
             Confirm that the payment amount is
-            <strong id="instructionPrice">€39.99</strong>.
+            <strong id="instructionPrice">$59.99</strong>.
         </li>
 
-        <li data-i18n="payment.complete_the_payment_through_your">
-            Complete the payment through your PayPal or banking app.
+        <li data-i18n="payment.enter_card_details">
+            Enter your card details in the secure checkout window.
         </li>
 
         <li data-i18n="payment.after_payment_is_completed_take">
@@ -906,7 +934,7 @@ body {
         type="hidden"
         id="formAmount"
         name="payment_amount"
-        value="€39.99"
+        value="$59.99"
     >
 
 
@@ -1045,7 +1073,7 @@ body {
             </span>
 
             <strong id="amountPrice">
-                €39.99
+                $59.99
             </strong>
 
         </div>
@@ -1071,7 +1099,7 @@ body {
         <span data-i18n-html="payment.i_confirm_that_i_have" data-i18n-keep="checkboxPrice">
 
             I confirm that I have completed the
-            <strong id="checkboxPrice">€39.99</strong>
+            <strong id="checkboxPrice">$59.99</strong>
             payment using the payment method selected above
             and have uploaded a screenshot of the completed payment.
 
@@ -1149,20 +1177,17 @@ body {
 
         bronze: {
             name: "Basic",
-            price: "39.99",
-            paypalLink: "https://www.paypal.com/ncp/payment/EDF73ZS7LDDZC"
+            price: "59.99"
         },
 
         silver: {
             name: "Standard",
-            price: "64.99",
-            paypalLink: "https://www.paypal.com/ncp/payment/VAR2R2D4T9TWJ"
+            price: "79.99"
         },
 
         gold: {
             name: "Premium",
-            price: "99.99",
-            paypalLink: "https://www.paypal.com/ncp/payment/QENGNGD8CD3T4I"
+            price: "129.99"
         }
 
     };
@@ -1188,7 +1213,7 @@ body {
 
 
     var price =
-        "€" + pkg.price;
+        "$" + pkg.price;
 
 
     /* ==============================
@@ -1216,8 +1241,11 @@ body {
     var formAmount =
         document.getElementById("formAmount");
 
-    var paypalPaymentLink =
-        document.getElementById("paypalPaymentLink");
+    var payButton =
+        document.getElementById("geideaPayButton");
+
+    var payStatus =
+        document.getElementById("geideaPayStatus");
 
 
     if (packageName) {
@@ -1282,11 +1310,113 @@ body {
 
     }
 
-    if (paypalPaymentLink) {
+    /* ==============================
+       GEIDEA HOSTED CHECKOUT
 
-        paypalPaymentLink.href =
-            pkg.paypalLink;
+       The browser only sends the package id. The server looks up the
+       price, creates the session and returns the session id.
+    ============================== */
 
+    var paying = false;
+
+    function showPayStatus(key, fallback, isError) {
+
+        if (!payStatus) return;
+
+        payStatus.textContent = tr(key, fallback);
+        payStatus.className =
+            "geidea-status" + (isError ? " error" : "");
+        payStatus.hidden = false;
+
+    }
+
+    function endPayment(key, fallback) {
+
+        paying = false;
+
+        if (payButton) {
+            payButton.disabled = false;
+            payButton.removeAttribute("aria-busy");
+        }
+
+        showPayStatus(key, fallback, true);
+
+    }
+
+    function loadCheckoutScript(url) {
+
+        return new Promise(function (resolve, reject) {
+
+            if (window.GeideaCheckout) {
+                resolve();
+                return;
+            }
+
+            var script = document.createElement("script");
+            script.src = url;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+
+        });
+
+    }
+
+    function startPayment() {
+
+        if (paying) return;
+
+        paying = true;
+        payButton.disabled = true;
+        payButton.setAttribute("aria-busy", "true");
+        showPayStatus("js.pay_loading", "Preparing secure checkout…", false);
+
+        fetch("/api/create-session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                package: PACKAGES[pkgKey] ? pkgKey : "bronze"
+            })
+        })
+        .then(function (res) {
+            return res.json().then(function (data) {
+                if (!res.ok || !data.sessionId || !data.scriptUrl) {
+                    throw new Error("session");
+                }
+                return data;
+            });
+        })
+        .then(function (data) {
+            return loadCheckoutScript(data.scriptUrl).then(function () {
+                return data;
+            });
+        })
+        .then(function (data) {
+
+            var checkout = new window.GeideaCheckout(
+                function () {
+                    /* Only a hint for the visitor: the server confirms the payment itself. */
+                    window.location.href = "payment-success.html";
+                },
+                function () {
+                    endPayment("js.pay_failed", "The payment was not completed. Please try again.");
+                },
+                function () {
+                    endPayment("js.pay_cancelled", "Payment cancelled. You can try again when you are ready.");
+                }
+            );
+
+            checkout.startPayment(data.sessionId);
+
+        })
+        .catch(function () {
+            endPayment("js.pay_error", "We could not start the payment. Please try again.");
+        });
+
+    }
+
+    if (payButton) {
+        payButton.addEventListener("click", startPayment);
     }
 
 

@@ -21,3 +21,11 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Local secrets (never commit)
+.env
+.env.*
+!.env.example
+
+.vercel
+.env*
