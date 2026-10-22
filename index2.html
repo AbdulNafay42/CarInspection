@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>503 - Server Unavailable</title>
+  <title data-i18n="offline.503_server_unavailable">503 - Server Unavailable</title>
 
   <style>
     * {
@@ -317,24 +317,24 @@
     <section class="content">
 
 
-      <h1>
+      <h1 data-i18n="offline.server_temporarily_unavailable">
         Server temporarily unavailable.
       </h1>
 
-      <p class="description">
+      <p class="description" data-i18n="offline.were_experiencing_a_temporary_issue">
         We're experiencing a temporary issue with our servers.
         Our team is already working on it. Please try again
         after a few moments.
       </p>
 
-      <div class="status">
+      <div class="status" data-i18n="offline.service_temporarily_offline">
         <span class="status-dot"></span>
         Service temporarily offline
       </div>
 
       <div class="actions">
 
-        <button class="retry" onclick="location.reload()">
+        <button class="retry" onclick="location.reload()" data-i18n="offline.try_again">
           ↻ &nbsp; Try Again
         </button>
 
@@ -345,5 +345,7 @@
 
   </main>
 
+<script src="i18n-dict.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

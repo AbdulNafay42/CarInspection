@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Complete Your Payment | Provin Finder</title>
-<meta name="description" content="Complete your Provin Finder inspection payment using PayPal or Zelle.">
+<title data-i18n="payment.complete_your_payment_provin_finder">Complete Your Payment | Provin Finder</title>
+<meta name="description" content="Complete your Provin Finder inspection payment using PayPal or Zelle." data-i18n-attr="content:payment.complete_your_provin_finder_inspection">
 
 <style>
 *,
@@ -689,15 +689,15 @@ body {
 
 <header class="payment-header">
 
-    <span class="payment-label">
+    <span class="payment-label" data-i18n="payment.step_2_of_2_secure">
         Step 2 of 2 · Secure Payment
     </span>
 
-    <h1>
+    <h1 data-i18n-html="payment.complete_your_payment">
         Complete Your <span>Payment</span>
     </h1>
 
-    <p>
+    <p data-i18n="payment.your_booking_details_have_been">
         Your booking details have been received.
         Please complete your payment using PayPal.
     </p>
@@ -711,7 +711,7 @@ body {
 
     <div class="package-info">
 
-        <span>Inspection Package</span>
+        <span data-i18n="payment.inspection_package">Inspection Package</span>
 
         <strong id="packageName">
             Basic Inspection
@@ -741,11 +741,11 @@ body {
         P
     </div>
 
-    <h2>
+    <h2 data-i18n="payment.pay_with_paypal">
         Pay with PayPal
     </h2>
 
-    <p>
+    <p data-i18n="payment.complete_your_payment_securely_through">
         Complete your payment securely through PayPal using the
         payment link below.
     </p>
@@ -759,11 +759,11 @@ body {
             </div>
 
             <div class="paypal-action-content">
-                <span class="paypal-action-title">
+                <span class="paypal-action-title" data-i18n="payment.secure_paypal_checkout">
                     Secure PayPal Checkout
                 </span>
 
-                <span class="paypal-action-subtitle">
+                <span class="paypal-action-subtitle" data-i18n="payment.you_will_be_redirected_to">
                     You will be redirected to PayPal to complete your payment.
                 </span>
             </div>
@@ -774,13 +774,13 @@ body {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="paypal-button"
-            >
+             data-i18n="payment.continue">
                 Continue
             </a>
 
         </div>
 
-        <span class="paypal-note">
+        <span class="paypal-note" data-i18n="payment.your_selected_inspection_package_and">
             Your selected inspection package and amount will be reflected
             in your payment details.
         </span>
@@ -796,42 +796,42 @@ body {
 
 <section class="instructions">
 
-    <h2>
+    <h2 data-i18n="payment.how_to_complete_your_payment">
         How to Complete Your Payment
     </h2>
 
     <ol>
 
-        <li>
+        <li data-i18n-html="payment.choose_paypal_to_complete_your">
             Choose <strong>PayPal</strong> to complete your payment.
         </li>
 
-        <li>
+        <li data-i18n="payment.use_your_phone_to_scan">
             Use your phone to scan the corresponding QR code below.
         </li>
 
-        <li>
+        <li data-i18n-html="payment.confirm_that_the_payment_amount" data-i18n-keep="instructionPrice">
             Confirm that the payment amount is
             <strong id="instructionPrice">€39.99</strong>.
         </li>
 
-        <li>
+        <li data-i18n="payment.complete_the_payment_through_your">
             Complete the payment through your PayPal or banking app.
         </li>
 
-        <li>
+        <li data-i18n="payment.after_payment_is_completed_take">
             After payment is completed, take a screenshot showing
             your successful payment.
         </li>
 
-        <li>
+        <li data-i18n="payment.return_to_the_confirmation_form">
             Return to the confirmation form below and provide your
             transaction ID and payment screenshot.
         </li>
 
     </ol>
 
-    <div class="payment-warning">
+    <div class="payment-warning" data-i18n-html="payment.important_please_complete_your_payment">
 
         <strong>Important:</strong>
         Please complete your payment before submitting the confirmation form.
@@ -848,15 +848,15 @@ body {
 
 <div class="confirmation-header">
 
-    <span class="label">
+    <span class="label" data-i18n="payment.final_step">
         Final Step
     </span>
 
-    <h2>
+    <h2 data-i18n-html="payment.confirm_your_payment">
         Confirm Your <span>Payment</span>
     </h2>
 
-    <p>
+    <p data-i18n="payment.after_completing_your_payment_enter">
         After completing your payment, enter your transaction
         information and upload a screenshot of your completed payment.
         Our team will manually verify the payment before confirming
@@ -917,7 +917,7 @@ body {
 
         <div class="form-group">
 
-            <label for="customerName">
+            <label for="customerName" data-i18n="payment.full_name">
                 Full Name *
             </label>
 
@@ -938,7 +938,7 @@ body {
 
         <div class="form-group">
 
-            <label for="customerEmail">
+            <label for="customerEmail" data-i18n="payment.email_address">
                 Email Address *
             </label>
 
@@ -959,7 +959,7 @@ body {
 
         <div class="form-group">
 
-            <label for="paymentMethod">
+            <label for="paymentMethod" data-i18n="payment.payment_method">
                 Payment Method *
             </label>
 
@@ -969,11 +969,11 @@ body {
                 required
             >
 
-                <option value="">
+                <option value="" data-i18n="payment.select_payment_method">
                     Select payment method
                 </option>
 
-                <option value="PayPal">
+                <option value="PayPal" data-i18n="payment.paypal">
                     PayPal
                 </option>
 
@@ -986,7 +986,7 @@ body {
 
         <div class="form-group">
 
-            <label for="paymentReference">
+            <label for="paymentReference" data-i18n="payment.payment_reference_transaction_id">
                 Payment Reference / Transaction ID *
             </label>
 
@@ -997,9 +997,9 @@ body {
                 placeholder="Enter transaction ID"
                 required
                 maxlength="100"
-            >
+             data-i18n-attr="placeholder:payment.enter_transaction_id">
 
-            <span class="form-hint">
+            <span class="form-hint" data-i18n="payment.enter_the_confirmation_number_or">
                 Enter the confirmation number or transaction ID
                 shown after your payment.
             </span>
@@ -1011,7 +1011,7 @@ body {
 
         <div class="form-group">
 
-            <label for="paymentScreenshot">
+            <label for="paymentScreenshot" data-i18n="payment.payment_screenshot">
                 Payment Screenshot *
             </label>
 
@@ -1023,7 +1023,7 @@ body {
                 required
             >
 
-            <span class="form-hint">
+            <span class="form-hint" data-i18n="payment.upload_a_screenshot_showing_your">
                 Upload a screenshot showing your completed payment.
                 PNG, JPG, JPEG or WEBP image required.
             </span>
@@ -1040,7 +1040,7 @@ body {
 
         <div class="amount-info">
 
-            <span>
+            <span data-i18n="payment.amount_to_confirm">
                 Amount to Confirm
             </span>
 
@@ -1050,7 +1050,7 @@ body {
 
         </div>
 
-        <div class="amount-status">
+        <div class="amount-status" data-i18n="payment.payment_amount_confirmed">
             ✓ Payment amount confirmed
         </div>
 
@@ -1068,7 +1068,7 @@ body {
             required
         >
 
-        <span>
+        <span data-i18n-html="payment.i_confirm_that_i_have" data-i18n-keep="checkboxPrice">
 
             I confirm that I have completed the
             <strong id="checkboxPrice">€39.99</strong>
@@ -1085,12 +1085,12 @@ body {
     <button
         type="submit"
         class="submit-button"
-    >
+     data-i18n="payment.submit_payment_confirmation">
         Submit Payment Confirmation →
     </button>
 
 
-    <p class="submit-note">
+    <p class="submit-note" data-i18n="payment.your_transaction_id_and_payment">
 
         Your transaction ID and payment screenshot will be
         sent to our team for manual verification.
@@ -1100,7 +1100,7 @@ body {
     </p>
 
 
-    <div class="security-note">
+    <div class="security-note" data-i18n="payment.your_confirmation_is_securely_transmitted">
 
         <span>✓</span>
 
@@ -1117,7 +1117,7 @@ body {
 
 <footer class="page-footer">
 
-    <p>
+    <p data-i18n-html="payment.2026_provin_finder_return_to">
 
         © 2026 Provin Finder ·
 
@@ -1142,6 +1142,8 @@ body {
     /* ==============================
        PACKAGE CONFIGURATION
     ============================== */
+
+    function tr(key, fallback) { return window.i18nT ? window.i18nT(key, fallback) : fallback; }
 
     var PACKAGES = {
 
@@ -1221,9 +1223,16 @@ body {
     if (packageName) {
 
         packageName.textContent =
-            pkg.name + " Inspection";
+            tr("js.pkg_" + pkgKey, pkg.name + " Inspection");
 
     }
+
+    document.addEventListener("i18n:change", function () {
+        if (packageName) {
+            packageName.textContent =
+                tr("js.pkg_" + pkgKey, pkg.name + " Inspection");
+        }
+    });
 
 
     if (packagePrice) {
@@ -1313,7 +1322,7 @@ body {
                     event.preventDefault();
 
                     alert(
-                        "Please upload your payment screenshot before submitting the confirmation form."
+                        tr("js.alert_no_file", "Please upload your payment screenshot before submitting the confirmation form.")
                     );
 
                     screenshot.focus();
@@ -1341,7 +1350,7 @@ body {
                     event.preventDefault();
 
                     alert(
-                        "Please upload a valid PNG, JPG, JPEG, or WEBP payment screenshot."
+                        tr("js.alert_bad_type", "Please upload a valid PNG, JPG, JPEG, or WEBP payment screenshot.")
                     );
 
                     screenshot.value = "";
@@ -1366,7 +1375,7 @@ body {
                     event.preventDefault();
 
                     alert(
-                        "Your screenshot must be smaller than 5 MB."
+                        tr("js.alert_too_big", "Your screenshot must be smaller than 5 MB.")
                     );
 
                     screenshot.value = "";
@@ -1386,5 +1395,7 @@ body {
 
 </script>
 
+<script src="i18n-dict.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

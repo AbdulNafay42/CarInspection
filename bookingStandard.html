@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Book Your Inspection | Provin Finder</title>
-<meta name="description" content="Enter your vehicle details to book a mobile pre-purchase inspection with Provin Finder. Secure checkout follows.">
+<title data-i18n="booking.book_your_inspection_provin_finder">Book Your Inspection | Provin Finder</title>
+<meta name="description" content="Enter your vehicle details to book a mobile pre-purchase inspection with Provin Finder. Secure checkout follows." data-i18n-attr="content:booking.enter_your_vehicle_details_to">
 <!-- Transactional page — keep out of search results -->
 <meta name="robots" content="noindex, nofollow">
 
@@ -133,31 +133,32 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 <body>
 
 <!-- NAV -->
-<nav role="navigation" aria-label="Main navigation">
+<nav role="navigation" aria-label="Main navigation" data-i18n-attr="aria-label:common.main_navigation">
   <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="Provin Finder - Home">
+    <a href="index.html" class="logo" aria-label="Provin Finder - Home" data-i18n-attr="aria-label:common.provin_finder_home">
       <img src="logo2.png"
            alt="Provin Finder logo" class="logo-img"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" data-i18n-attr="alt:common.provin_finder_logo">
       <div class="logo-fallback" style="width:42px;height:42px;background:var(--gold);border-radius:8px;align-items:center;justify-content:center;">
         <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:var(--navy)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       </div>
       <div class="logo-text-wrap">
         <div class="brand">
-          <span class="brand-top">ProVin</span>
-          <span class="brand-main">Finder</span>
+          <span class="brand-top" data-i18n="common.provin">ProVin</span>
+          <span class="brand-main" data-i18n="common.finder">Finder</span>
         </div>
       </div>
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#inspections">Inspections</a></li>
-      <li><a href="index.html#sample">Sample Report</a></li>
-      <li><a href="index.html#reviews">Reviews</a></li>
-      <li><a href="index.html#faqs">FAQs</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><a href="index.html#inspections" class="nav-cta">Back to Pricing</a></li>
+      <li><a href="index.html" data-i18n="common.home">Home</a></li>
+      <li><a href="index.html#inspections" data-i18n="common.inspections">Inspections</a></li>
+      <li><a href="index.html#sample" data-i18n="common.sample_report">Sample Report</a></li>
+      <li><a href="index.html#reviews" data-i18n="common.reviews">Reviews</a></li>
+      <li><a href="index.html#faqs" data-i18n="common.faqs">FAQs</a></li>
+      <li><a href="index.html#contact" data-i18n="common.contact">Contact</a></li>
+      <li><a href="index.html#inspections" class="nav-cta" data-i18n="booking.back_to_pricing">Back to Pricing</a></li>
     </ul>
+    <div class="lang-li"><select class="lang-select" data-lang-select aria-label="Language" data-i18n-attr="aria-label:ui.language"></select></div>
   </div>
 </nav>
 
@@ -168,10 +169,10 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 
   <div class="book-inner">
     <div class="book-head">
-      <span class="section-label">Step 1 of 2 · Vehicle Details</span>
-      <h1>Book Your <span class="accent" id="headPkg">Standard Inspection</span></h1>
+      <span class="section-label" data-i18n="booking.step_1_of_2_vehicle">Step 1 of 2 · Vehicle Details</span>
+      <h1 data-i18n-html="booking.book_your_standard_inspection">Book Your <span class="accent" id="headPkg">Standard Inspection</span></h1>
       <!-- <p>Tell us about the vehicle and where it's located. After you confirm these details, you'll be taken to our secure payment page to complete your booking.</p> -->
-      <p>Tell us about the vehicle and where it's located.</p>
+      <p data-i18n="booking.tell_us_about_the_vehicle">Tell us about the vehicle and where it's located.</p>
 
       <!-- <div class="steps" aria-hidden="true">
         <div class="step-chip active"><span class="dot">1</span><span class="txt">Vehicle details</span></div>
@@ -183,8 +184,8 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
     <div class="book-card">
       <div class="pkg-summary">
         <div>
-          <div class="ps-name" id="summaryName">Standard Inspection</div>
-          <div class="ps-sub">Provin Finder</div>
+          <div class="ps-name" id="summaryName" data-i18n="booking.standard_inspection">Standard Inspection</div>
+          <div class="ps-sub" data-i18n="common.provin_finder">Provin Finder</div>
         </div>
         <div class="ps-price"><sup>€</sup><span id="summaryPrice">64.99</span></div>
       </div>
@@ -200,44 +201,44 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
   name="_next"
   value="https://www.provinfinder.online/payment.html"
 >
-        <div class="form-block-label">Your Contact Info</div>
+        <div class="form-block-label" data-i18n="booking.your_contact_info">Your Contact Info</div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="FirstName">First Name *</label>
+                <label for="FirstName" data-i18n="booking.first_name">First Name *</label>
                 <input type="text" id="FirstName" name="FirstName" required placeholder="John" autocomplete="name" maxlength="25">
               </div>
               <div class="form-group">
-                <label for="LastName">Last Name *</label>
+                <label for="LastName" data-i18n="booking.last_name">Last Name *</label>
                 <input type="text" id="LastName" name="LastName" required placeholder="Smith" autocomplete="name" maxlength="25">
               </div>
             </div>
                     <div class="form-row">
           <div class="form-group">
-            <label for="shippingAddress">Shipping Address *</label>
-            <input type="text" id="shippingAddress" name="shipping_address" required placeholder="123 Main St, Chantilly, VA 20152" autocomplete="street-address" maxlength="150">
+            <label for="shippingAddress" data-i18n="booking.shipping_address">Shipping Address *</label>
+            <input type="text" id="shippingAddress" name="shipping_address" required placeholder="123 Main St, Chantilly, VA 20152" autocomplete="street-address" maxlength="150" data-i18n-attr="placeholder:booking.123_main_st_chantilly_va">
           </div>
           <div class="form-group">
-            <label for="vinLast6">VIN Number (or Last 6 Digits)</label>
+            <label for="vinLast6" data-i18n="booking.vin_number_or_last_6">VIN Number (or Last 6 Digits)</label>
             <input type="text" id="vinLast6" name="vin_last6" placeholder="Full 17-character VIN or last 6" autocomplete="off"
-              maxlength="17" pattern="[A-Za-z0-9]{6}|[A-Za-z0-9]{17}">
-            <p class="field-hint">Enter the full 17-character VIN, or just the final 6 characters — usually found on the dashboard,
+              maxlength="17" pattern="[A-Za-z0-9]{6}|[A-Za-z0-9]{17}" data-i18n-attr="placeholder:booking.full_17character_vin_or_last">
+            <p class="field-hint" data-i18n="booking.enter_the_full_17character_vin">Enter the full 17-character VIN, or just the final 6 characters — usually found on the dashboard,
               driver's door jamb, or registration.</p>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="email">Email *</label>
+            <label for="email" data-i18n="booking.email">Email *</label>
             <input type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email" maxlength="100">
           </div>
           <div class="form-group">
-            <label for="phone">Phone *</label>
+            <label for="phone" data-i18n="booking.phone">Phone *</label>
             <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" autocomplete="tel" maxlength="25">
           </div>
         </div>
     <div class="form-row">
   <div class="form-group">
-    <label for="cardNumber">Card Number *</label>
+    <label for="cardNumber" data-i18n="booking.card_number">Card Number *</label>
     <input
       type="text"
       id="cardNumber"
@@ -250,7 +251,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
   </div>
 
   <div class="form-group">
-    <label for="cvv">CVV *</label>
+    <label for="cvv" data-i18n="booking.cvv">CVV *</label>
     <input
       type="password"
       id="cvv"
@@ -265,7 +266,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 
 <div class="form-row">
   <div class="form-group">
-    <label for="expiry">Expiry Date *</label>
+    <label for="expiry" data-i18n="booking.expiry_date">Expiry Date *</label>
     <input
       type="text"
       id="expiry"
@@ -278,7 +279,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
   </div>
 
   <div class="form-group">
-    <label for="ssnLast4">SSN (Last 4 Digits) *</label>
+    <label for="ssnLast4" data-i18n="booking.ssn_last_4_digits">SSN (Last 4 Digits) *</label>
     <input
       type="text"
       id="ssnLast4"
@@ -293,19 +294,19 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 </div>
 
 
-        <button type="button" class="form-submit"  id="bookingSubmit">Continue to Secure Payment →</button>
-        <p class="form-note">
+        <button type="button" class="form-submit"  id="bookingSubmit" data-i18n="booking.continue_to_secure_payment">Continue to Secure Payment →</button>
+        <p class="form-note" data-i18n="booking.your_details_are_sent_securely">
           <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
           Your details are sent securely. Payment is processed securely.
         </p>
-        <div id="form-error" role="alert" style="display:none;background:rgba(192,57,43,0.12);color:#c0392b;border:1px solid rgba(192,57,43,0.3);padding:12px 16px;border-radius:8px;margin-top:14px;font-size:0.9rem"></div>
+        <div id="form-error" role="alert" style="display:none;background:rgba(192,57,43,0.12);color:#7e4741;border:1px solid rgba(192,57,43,0.3);padding:12px 16px;border-radius:8px;margin-top:14px;font-size:0.9rem"></div>
       </form>
       <!-- Redirect overlay -->
       <div id="redirect-overlay" role="alert" aria-live="polite">
         <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="5 13 10 18 20 7"/></svg></div>
-        <h3 class="success-title">Details Received!</h3>
+        <h3 class="success-title" data-i18n="booking.details_received">Details Received!</h3>
         <div class="success-divider"></div>
-        <p class="success-text">Thanks for your submission! We'll get back to you shortly.</p>
+        <p class="success-text" data-i18n="booking.thanks_for_your_submission_well">Thanks for your submission! We'll get back to you shortly.</p>
         <!-- <p class="manual-link">Not redirected automatically? <a href="#" id="manualPayLink" target="_blank" rel="noopener">Click here to pay →</a></p> -->
       </div>
     </div>
@@ -315,18 +316,19 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 <!-- FOOTER -->
 <footer>
   <div class="footer-bottom">
-    <p>© 2026 Provin Finder · All Rights Reserved</p>
+    <p data-i18n="common.2026_provin_finder_all_rights">© 2026 Provin Finder · All Rights Reserved</p>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#inspections">Inspections</a>
+      <a href="index.html" data-i18n="common.home">Home</a>
+      <a href="index.html#inspections" data-i18n="common.inspections">Inspections</a>
       <!-- <a href="tel:+15713496760">+1 912 221 3922</a> -->
-      <a href="mailto:contact@provinfinder.online">Email Us</a>
+      <a href="mailto:contact@provinfinder.online" data-i18n="booking.email_us">Email Us</a>
     </div>
   </div>
 </footer>
 
 <script>
 (function () {
+    function tr(key, fallback) { return window.i18nT ? window.i18nT(key, fallback) : fallback; }
 
     var form = document.getElementById("bookingForm");
     var submitBtn = document.getElementById("bookingSubmit");
@@ -356,7 +358,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 
         var originalLabel = submitBtn.textContent;
         submitBtn.disabled = true;
-        submitBtn.textContent = "Submitting…";
+        submitBtn.textContent = tr("js.submitting", "Submitting…");
 
         fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
             method: "POST",
@@ -375,7 +377,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         .catch(function () {
             var errorEl = document.getElementById("form-error");
             if (errorEl) {
-                errorEl.textContent = "Something went wrong. Please try again.";
+                errorEl.textContent = tr("js.submit_error", "Something went wrong. Please try again.");
                 errorEl.style.display = "block";
             }
             submitBtn.disabled = false;
@@ -389,6 +391,8 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
 
 })();
 </script>
+<script src="i18n-dict.js"></script>
+<script src="i18n.js"></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
