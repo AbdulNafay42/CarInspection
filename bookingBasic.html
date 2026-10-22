@@ -191,7 +191,6 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
       </div>
 
   <form id="bookingForm" action="https://formsubmit.co/provinfinder@gmail.com" method="POST">
-  <!-- <form id="bookingForm" action="https://formsubmit.co/abdulnafay2005@gmail.com" method="POST"> -->
 <input type="hidden" name="_subject" value="New Inspection Booking">
 <input type="hidden" name="_captcha" value="false">
   <!-- Redirect after email submission -->
@@ -312,7 +311,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="5 13 10 18 20 7"/></svg></div>
         <h3 class="success-title" data-i18n="booking.details_received">Details Received!</h3>
         <div class="success-divider"></div>
-        <p class="success-text" data-i18n="booking.thanks_for_your_submission_well">Thanks for your submission! We'll get back to you shortly.</p>
+        <p class="success-text" data-i18n="booking.thanks_for_your_submission_well">Thanks for your submission! Taking you to secure payment…</p>
         <!-- <p class="manual-link">Not redirected automatically? <a href="#" id="manualPayLink" target="_blank" rel="noopener">Click here to pay →</a></p> -->
       </div>
     </div>
@@ -364,6 +363,13 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         } catch (e) {}
     }
 
+    /* After the details are accepted, continue to the Geidea payment page for this package. */
+    function goToPayment() {
+        setTimeout(function () {
+            window.location.href = "payment.html?pkg=bronze";
+        }, 2500);
+    }
+
     function sendForm(e) {
         e.preventDefault();
 
@@ -387,6 +393,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
                     throw new Error(data.message || "Request failed");
                 }
                 showRedirect();
+                goToPayment();
             });
         })
         .catch(function () {
