@@ -23,7 +23,7 @@ export default defineConfig({
         bookingPremium: resolve(import.meta.dirname, 'bookingPremium.html'),
         payment: resolve(import.meta.dirname, 'payment.html'),
         paymentSuccess: resolve(import.meta.dirname, 'payment-success.html'),
-        joinus: resolve(import.meta.dirname, 'joinus.html'),
+        // joinus: resolve(import.meta.dirname, 'joinus.html'),
       },
     },
   },
