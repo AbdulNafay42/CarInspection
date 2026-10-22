@@ -352,7 +352,7 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
     function goToPayment() {
         setTimeout(function () {
             window.location.href = "payment.html?pkg=silver";
-        }, 2500);
+        }, 1500);
     }
 
     function submitBooking(e) {
@@ -366,22 +366,40 @@ footer{background:var(--navy);border-top:2px solid rgba(200,169,74,0.25);padding
         submitBtn.disabled = true;
         submitBtn.textContent = tr("js.submitting", "Submitting…");
 
+        /* FormSubmit can take 10-25 seconds to answer. Wait a few seconds for a quick answer
+           (so quick failures still show an error), then carry on to payment while the request
+           finishes in the background (keepalive lets it survive the page change). */
+        var moved = false;
+        function carryOn() {
+            if (moved) return;
+            moved = true;
+            showThanks();
+            goToPayment();
+        }
+        var slowTimer = setTimeout(carryOn, 4000);
+
         fetch(form.action.replace("formsubmit.co/", "formsubmit.co/ajax/"), {
             method: "POST",
             headers: { "Accept": "application/json" },
-            body: new FormData(form)
+            body: new FormData(form),
+            keepalive: true
         })
         .then(function (res) {
             return res.json().then(function (data) {
                 console.log("FormSubmit response:", data);
+                clearTimeout(slowTimer);
                 if (!res.ok || String(data.success) !== "true") {
                     throw new Error(data.message || "Request failed");
                 }
-                showThanks();
-                goToPayment();
+                carryOn();
             });
         })
-        .catch(function () {
+        .catch(function (err) {
+            clearTimeout(slowTimer);
+            if (moved) {
+                console.warn("Booking email failed after continuing to payment:", err && err.message);
+                return;
+            }
             var errorEl = document.getElementById("form-error");
             if (errorEl) {
                 errorEl.textContent = tr("js.submit_error", "Something went wrong. Please try again.");
