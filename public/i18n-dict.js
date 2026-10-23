@@ -68,6 +68,7 @@ window.I18N_DICT = {
     "home.plainlanguage_diagnostic_analysis": "Plain-Language Diagnostic Analysis",
     "home.a_written_interpretation_of_the": "A written interpretation of the computer diagnostic scan instead of a raw list of codes",
     "home.book_standard_6499": "Book Standard — €64.99",
+    "home.get_my_report_now": "Ontvang nu mijn rapport",
     "home.premium": "✦ Premium",
     "home.book_now_9999": "Book Now — €99.99",
     "home.everything_in_the_standard_package": "Everything in the Standard Package",
